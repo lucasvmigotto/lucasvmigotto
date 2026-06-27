@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "name": "Lucas Vidor Migotto",
+    "title": "Senior Software Engineer & Cloud Architect",
+    "email": "lvmigotto1@gmail.com",
+    "phone": "+55 (11) 98315-6100",
+    "whatsapp": "https://wa.me/5511983156100",
+    "location": "São Paulo, Brasil",
+    "pdfUrl": "https://huggingface.co/buckets/lucasvmigotto/main/resolve/lucas-cv-en.pdf?download=true",
+    "github": "https://github.com/lucasvmigotto",
+    "linkedin": "https://linkedin.com/in/lucasvmigotto",
+    "instagram": "https://instagram.com/lucasvmigotto"
+  },
+  "objectiveShort": "I architect and ship cloud-native systems across AWS, GCP, and Azure — then apply machine learning to make them smarter.",
+  "objective": "Senior Software Engineer and Cloud Architect with extensive experience designing, deploying, and maintaining cloud-native applications and robust web platforms. Proven expertise across multi-cloud infrastructure (AWS, GCP, Azure) and a deep commitment to DevOps principles, Infrastructure as Code (IaC), and continuous improvement. Polyglot developer highly proficient in Java (Spring), Python, JavaScript (NodeJS, Bun, modern frontends), and C# (.NET), SQL and NoSQL. Passionate about leveraging Data Science, Machine Learning, and Deep Learning to optimize workflows, modernize legacy systems, and deliver scalable, secure software solutions.",
+  "experience": [
+    {
+      "company": "CRECI-SP",
+      "location": "São Paulo",
+      "role": "Senior Developer",
+      "period": { "start": "2023-05", "end": null },
+      "current": true,
+      "bullets": [
+        "Lead the idealization, architectural planning, and end-to-end development of new enterprise applications and high-impact software features.",
+        "Spearhead the adoption of DevOps culture and practices, ensuring a sustainable, secure, and highly efficient coding environment.",
+        "Conduct active AI research and implement machine learning insights to optimize internal workflows and enhance system capabilities.",
+        "Ensure rigorous compliance with current industry legislation while maintaining best-in-class software architecture standards."
+      ]
+    },
+    {
+      "company": "QuikDev",
+      "location": "São Paulo",
+      "role": "Middle/Senior Backend Developer",
+      "period": { "start": "2022-05", "end": "2022-11" },
+      "current": false,
+      "bullets": [
+        "Engineered and deployed high-performance backend features for web platforms utilizing Node.js.",
+        "Collaborated closely with Tech Leads and Scrum Masters in an Agile environment to translate customer expectations into scalable product increments during rapid sprints."
+      ]
+    },
+    {
+      "company": "DG Solutions",
+      "location": "Curitiba",
+      "role": "Full Stack Middle Developer",
+      "period": { "start": "2021-03", "end": "2022-05" },
+      "current": false,
+      "bullets": [
+        "Architected and delivered new web platforms while executing critical maintenance and refactoring of legacy codebases.",
+        "Engineered scalable microservices in Python and successfully integrated third-party APIs to expand platform functionality."
+      ]
+    },
+    {
+      "company": "AMIX Serviços de Informática",
+      "location": "São Paulo",
+      "role": "Junior Developer",
+      "period": { "start": "2018-02", "end": "2020-07" },
+      "current": false,
+      "bullets": [
+        "Developed and launched the corporate website, aligning technical implementation with executive design expectations.",
+        "Engaged in co-programming initiatives with Senior Developers to accelerate technical proficiency and ensure code quality."
+      ]
+    }
+  ],
+  "skills": {
+    "languages_frameworks": ["Java/Spring", "Python", "TypeScript", "C#/.NET", "Node.js/Bun", "JavaScript"],
+    "cloud_infrastructure": ["AWS", "GCP", "Azure", "Docker", "Git", "IaC"],
+    "devops_architecture": ["CI/CD", "Microservices", "Agile/Scrum", "Cloud-native Architecture"],
+    "data_ai": ["Machine Learning", "Deep Learning", "Data Science", "SQL Server", "PostgreSQL", "MySQL", "MongoDB", "CosmosDB"]
+  },
+  "certifications": [
+    {
+      "name": "AWS Cloud Practitioner",
+      "issuer": "AWS",
+      "issuerSvg": "/assets/certs/aws.svg",
+      "date": "2023-08",
+      "url": "https://www.credly.com/badges/672d6fae-b5e9-42b6-aa22-fe79a956935a/linked_in_profile"
+    },
+    {
+      "name": "AI-900 Azure AI Fundamentals",
+      "issuer": "Microsoft",
+      "issuerSvg": "/assets/certs/microsoft.svg",
+      "date": "2023-06",
+      "url": "https://learn.microsoft.com/en-us/users/lucasvmigotto/credentials/da7bcdf1a9941023"
+    },
+    {
+      "name": "AZ-900 Azure Fundamentals",
+      "issuer": "Microsoft",
+      "issuerSvg": "/assets/certs/microsoft.svg",
+      "date": "2023-09",
+      "url": "https://learn.microsoft.com/api/credentials/share/en-us/LucasVidorMigotto-4849/8F65413AA617A028"
+    }
+  ],
+  "education": [
+    { "institution": "USP/ESALQ", "degree": "MBA Data Science and Analytics", "period": { "start": "2024-03", "end": "2026-07" }, "inProgress": true },
+    { "institution": "PUC-PR", "degree": "Degree Applied Artificial Intelligence", "period": { "start": "2024-07", "end": "2026-04" }, "inProgress": true },
+    { "institution": "PUC-MG", "degree": "Postgrad Specialization AI & Machine Learning", "period": { "start": "2024-03", "end": "2025-02" }, "inProgress": false },
+    { "institution": "Faculdade Escola Paulista de Direito", "degree": "Postgrad Specialization Digital Law", "period": { "start": "2022-11", "end": "2023-02" }, "inProgress": false },
+    { "institution": "FATEC Ipiranga", "degree": "Systems Analysis and Development", "period": { "start": "2018-01", "end": "2021-06" }, "inProgress": false },
+    { "institution": "Escola SENAI de Informática", "degree": "Vocational School Information Technology", "period": { "start": "2016-01", "end": "2017-12" }, "inProgress": false }
+  ],
+  "languages": [
+    { "language": "Portuguese", "level": "Native" },
+    { "language": "English", "level": "Advanced" },
+    { "language": "French", "level": "Basic" },
+    { "language": "German", "level": "Basic" },
+    { "language": "Italian", "level": "Basic" }
+  ]
+}
