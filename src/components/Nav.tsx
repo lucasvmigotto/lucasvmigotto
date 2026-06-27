@@ -25,9 +25,9 @@ export function Nav() {
 
   return (
     <nav
-      className={`sticky top-0 z-100 border-b transition-colors duration-300 ease-out ${
+      className={`sticky top-0 z-50 border-b transition-colors duration-300 ease-out ${
         scrolled
-          ? "bg-[rgba(8,12,20,0.85)] backdrop-blur-[16px] border-[var(--color-border)]"
+          ? "bg-[rgba(8,12,20,0.85)] backdrop-blur-[16px] border-border"
           : "bg-transparent border-transparent"
       }`}
     >
@@ -35,7 +35,7 @@ export function Nav() {
         <button
           type="button"
           onClick={() => handleNavClick("hero")}
-          className="font-[family-name:var(--font-heading)] font-semibold text-[1rem] text-[var(--color-text-primary)] tracking-[-0.01em] bg-transparent border-none cursor-pointer"
+          className="font-heading font-semibold text-[1rem] text-text-primary tracking-[-0.01em] bg-transparent border-none cursor-pointer"
         >
           LVM
         </button>
@@ -45,8 +45,8 @@ export function Nav() {
             <a
               key={id}
               href={`#${id}`}
-              className="relative font-[family-name:var(--font-body)] text-[0.875rem] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-200 py-1
-                  after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-[var(--color-accent)] after:transition-[width] after:duration-300 after:ease-out
+              className="relative font-body text-[0.875rem] text-text-secondary hover:text-accent transition-colors duration-200 py-1
+                  after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-accent after:transition-[width] after:duration-300 after:ease-out
                   hover:after:w-full"
             >
               {t(`nav.${labelKey}`)}
@@ -63,25 +63,25 @@ export function Nav() {
           aria-expanded={open}
         >
           <span
-            className={`block w-5 h-[2px] bg-[var(--color-text-primary)] transition-transform duration-300 ${open ? "rotate-45 translate-y-[7px]" : ""}`}
+            className={`block w-5 h-[2px] bg-text-primary transition-transform duration-300 ${open ? "rotate-45 translate-y-[7px]" : ""}`}
           />
           <span
-            className={`block w-5 h-[2px] bg-[var(--color-text-primary)] transition-opacity duration-300 ${open ? "opacity-0" : ""}`}
+            className={`block w-5 h-[2px] bg-text-primary transition-opacity duration-300 ${open ? "opacity-0" : ""}`}
           />
           <span
-            className={`block w-5 h-[2px] bg-[var(--color-text-primary)] transition-transform duration-300 ${open ? "-rotate-45 -translate-y-[7px]" : ""}`}
+            className={`block w-5 h-[2px] bg-text-primary transition-transform duration-300 ${open ? "-rotate-45 -translate-y-[7px]" : ""}`}
           />
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-[rgba(8,12,20,0.95)] backdrop-blur-[16px] border-t border-[var(--color-border)]">
+        <div className="md:hidden bg-[rgba(8,12,20,0.95)] backdrop-blur-[16px] border-t border-border">
           <div className="flex flex-col px-4 pb-4 pt-2">
             {SECTIONS.map(({ id, labelKey }) => (
               <a
                 key={id}
                 href={`#${id}`}
-                className="font-[family-name:var(--font-body)] text-[0.9375rem] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-200 py-3 min-h-[44px] flex items-center"
+                className="font-body text-[0.9375rem] text-text-secondary hover:text-accent transition-colors duration-200 py-3 min-h-[44px] flex items-center"
               >
                 {t(`nav.${labelKey}`)}
               </a>

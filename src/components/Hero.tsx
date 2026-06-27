@@ -22,19 +22,19 @@ export function Hero({ meta, objectiveShort }: HeroProps) {
 
       <div className="mx-auto max-w-[1120px] px-4 sm:px-8 w-full">
         <div className="max-w-3xl">
-          <span className="animate-fade-up block font-[family-name:var(--font-heading)] font-medium text-[0.75rem] uppercase tracking-[0.12em] text-[var(--color-accent)] mb-6 [animation-delay:200ms]">
+          <span className="animate-fade-up block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent mb-6 [animation-delay:200ms]">
             {meta.title}
           </span>
 
-          <h1 className="animate-fade-up font-[family-name:var(--font-heading)] font-bold text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.03em] text-[var(--color-text-primary)] [animation-delay:350ms]">
+          <h1 className="animate-fade-up font-heading font-bold text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.03em] text-text-primary [animation-delay:350ms]">
             {meta.name.split(" ")[0]}
           </h1>
 
-          <h1 className="animate-fade-up font-[family-name:var(--font-heading)] font-bold text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.03em] text-[var(--color-text-primary)] mb-8 [animation-delay:450ms]">
+          <h1 className="animate-fade-up font-heading font-bold text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.03em] text-text-primary mb-8 [animation-delay:450ms]">
             {meta.name.split(" ").slice(1).join(" ")}
           </h1>
 
-          <p className="animate-fade-up max-w-xl font-[family-name:var(--font-body)] text-[0.9375rem] sm:text-base text-[var(--color-text-secondary)] leading-relaxed mb-10 [animation-delay:580ms]">
+          <p className="animate-fade-up max-w-xl font-body text-[0.9375rem] sm:text-base text-text-secondary leading-relaxed mb-10 [animation-delay:580ms]">
             {objectiveShort}
           </p>
 

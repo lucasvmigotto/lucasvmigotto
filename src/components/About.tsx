@@ -26,19 +26,19 @@ export function About({ resume }: AboutProps) {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 items-start">
         <div className="lg:block hidden" />
         <div>
-          <p className="font-[family-name:var(--font-body)] text-[0.9375rem] sm:text-base text-[var(--color-text-secondary)] leading-relaxed mb-10">
+          <p className="font-body text-[0.9375rem] sm:text-base text-text-secondary leading-relaxed mb-10">
             &ldquo;{resume.objectiveShort}.&rdquo;
           </p>
 
-          <p className="font-[family-name:var(--font-body)] text-[0.9375rem] sm:text-base text-[var(--color-text-secondary)] leading-relaxed mb-10">
+          <p className="font-body text-[0.9375rem] sm:text-base text-text-secondary leading-relaxed mb-10">
             {resume.objective}
           </p>
 
-          <div className="flex items-center justify-center gap-6 sm:gap-8 py-6 border-t border-b border-[var(--color-border)]">
+          <div className="flex items-center justify-center gap-6 sm:gap-8 py-6 border-t border-b border-border">
             <StatItem value={`${years}+`} label={t("about.statYears")} />
-            <span className="block w-px h-12 bg-[var(--color-border)]" aria-hidden="true" />
+            <span className="block w-px h-12 bg-border" aria-hidden="true" />
             <StatItem value={`${cloudCount}`} label={t("about.statClouds")} />
-            <span className="block w-px h-12 bg-[var(--color-border)]" aria-hidden="true" />
+            <span className="block w-px h-12 bg-border" aria-hidden="true" />
             <StatItem value={`${certCount}+`} label={t("about.statCerts")} />
           </div>
         </div>

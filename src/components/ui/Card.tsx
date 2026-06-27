@@ -15,10 +15,10 @@ export const Card = forwardRef<HTMLElement, CardProps>(
       {
         ref,
         className: cn(
-          "rounded-[var(--radius-md)] border border-[var(--color-border)] p-6 transition-all duration-250 ease-out",
-          "shadow-[var(--shadow-card)]",
-          "hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)] hover:border-[rgba(91,110,245,0.3)]",
-          variant === "default" && "bg-[var(--color-surface)]",
+          "rounded-md border border-border p-6 transition-all duration-250 ease-out",
+          "shadow-card",
+          "hover:-translate-y-1 hover:shadow-card-hover hover:border-[rgba(91,110,245,0.3)]",
+          variant === "default" && "bg-surface",
           variant === "glass" && "glass",
           className,
         ),

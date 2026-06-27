@@ -21,26 +21,28 @@ export function Education({ education }: EducationProps) {
       eyebrow={t("education.eyebrow")}
       heading={t("education.heading")}
     >
-      <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        ref={ref}
+        data-reveal
+        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ${isVisible ? "is-visible" : ""}`}
+      >
         {education.map((edu, i) => (
           <div
             key={`${edu.institution}-${edu.period.start}`}
-            className={`animate-fade-up ${isVisible ? "is-visible" : ""}`}
+            className="animate-fade-up"
             style={{ animationDelay: getChildDelay(i) }}
           >
-            <Card className="border-t-2 border-t-[var(--color-accent)]">
+            <Card className="border-t-2 border-t-accent">
               <div className="flex items-start justify-between mb-2">
-                <h3 className="font-[family-name:var(--font-heading)] font-medium text-[0.9rem] leading-[1.3] text-[var(--color-text-primary)]">
+                <h3 className="font-heading font-medium text-[0.9rem] leading-[1.3] text-text-primary">
                   {edu.institution}
                 </h3>
               </div>
 
-              <p className="font-[family-name:var(--font-body)] text-[0.9rem] text-[var(--color-text-secondary)] mb-3">
-                {edu.degree}
-              </p>
+              <p className="font-body text-[0.9rem] text-text-secondary mb-3">{edu.degree}</p>
 
               <div className="flex items-center gap-2">
-                <span className="font-[family-name:var(--font-body)] font-light text-[0.8rem] text-[var(--color-text-disabled)] tracking-[0.02em]">
+                <span className="font-body font-light text-[0.8rem] text-text-disabled tracking-[0.02em]">
                   {formatPeriod(edu.period.start, edu.period.end)}
                 </span>
                 {edu.inProgress && <Pill variant="success">{t("education.inProgress")}</Pill>}

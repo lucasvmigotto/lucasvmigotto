@@ -23,18 +23,6 @@
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Spacing (8px base grid) */
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-6: 1.5rem;
-  --spacing-8: 2rem;
-  --spacing-12: 3rem;
-  --spacing-16: 4rem;
-  --spacing-24: 6rem;
-  --spacing-32: 8rem;
-
   /* Border Radius */
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -52,36 +40,6 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
-}
-
-/* ═══════════════════════════════════════
-   CSS Custom Properties (mirrors)
-   Needed for inline styles and pseudo-elements
-   ═══════════════════════════════════════ */
-
-:root {
-  --color-bg: #080C14;
-  --color-surface: #0F1724;
-  --color-surface-raised: #16213A;
-  --color-border: #1E2D4A;
-  --color-text-primary: #E8EDF5;
-  --color-text-secondary: #8A9BBD;
-  --color-text-disabled: #4A5878;
-  --color-accent: #5B6EF5;
-  --color-accent-glow: rgba(91, 110, 245, 0.15);
-  --color-gold: #D4A843;
-  --color-success: #3DC990;
-
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px #1E2D4A;
-  --shadow-card-hover: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(91, 110, 245, 0.3), 0 0 32px rgba(91, 110, 245, 0.06);
-  --shadow-btn: 0 0 20px rgba(91, 110, 245, 0.3);
-  --shadow-btn-hover: 0 0 32px rgba(91, 110, 245, 0.55);
-
-  color-scheme: dark;
 }
 
 /* ═══════════════════════════════════════
@@ -118,7 +76,7 @@ body {
   background-color: var(--color-bg);
   position: relative;
   min-height: 100svh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 a {
@@ -173,6 +131,9 @@ body::before {
 #root {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
 }
 
 /* ═══════════════════════════════════════
@@ -234,12 +195,19 @@ body::before {
    Animation Utility Classes
    ═══════════════════════════════════════ */
 
+/* Plays on mount by default (hero page-load stagger) */
 .animate-fade-up {
-  opacity: 0;
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .animate-fade-up.is-visible {
+  /* Scroll-reveal containers: children hidden until container gets .is-visible */
+  [data-reveal] .animate-fade-up {
+    opacity: 0;
+    animation: none;
+  }
+
+  [data-reveal].is-visible .animate-fade-up {
     animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
@@ -268,6 +236,7 @@ body::before {
   .animate-fade-up,
   .animate-fade-in {
     opacity: 1;
+    animation: none;
   }
 }
 

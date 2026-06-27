@@ -31,20 +31,16 @@ export function Skills({ skills, certifications }: SkillsProps) {
       eyebrow={t("skills.eyebrow")}
       heading={t("skills.heading")}
     >
-      <div ref={ref}>
+      <div ref={ref} data-reveal className={isVisible ? "is-visible" : ""}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {CATEGORIES.map(({ key, icon: Icon, labelKey }, i) => (
-            <div
-              key={key}
-              className={`animate-fade-up ${isVisible ? "is-visible" : ""}`}
-              style={{ animationDelay: getChildDelay(i) }}
-            >
+            <div key={key} className="animate-fade-up" style={{ animationDelay: getChildDelay(i) }}>
               <Card variant="glass">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[var(--color-accent)]">
+                  <span className="text-accent">
                     <Icon />
                   </span>
-                  <span className="font-[family-name:var(--font-heading)] font-medium text-[0.75rem] uppercase tracking-[0.08em] text-[var(--color-text-primary)]">
+                  <span className="font-heading font-medium text-[0.75rem] uppercase tracking-[0.08em] text-text-primary">
                     {tk(`skills.${labelKey}`)}
                   </span>
                 </div>
@@ -61,10 +57,10 @@ export function Skills({ skills, certifications }: SkillsProps) {
 
       {certifications.length > 0 && (
         <div className="mt-12">
-          <span className="block font-[family-name:var(--font-heading)] font-medium text-[0.75rem] uppercase tracking-[0.12em] text-[var(--color-accent)] mb-4">
+          <span className="block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent mb-4">
             {t("skills.certificationsLabel")}
           </span>
-          <div className="flex gap-4 overflow-x-auto scrollbar-hide scroll-snap-x-mandatory pb-2">
+          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2">
             {certifications.map((cert) => (
               <CertBadge key={cert.name} cert={cert} />
             ))}

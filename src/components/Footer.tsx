@@ -10,11 +10,12 @@ export function Footer({ meta }: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--color-surface)] border-t border-[var(--color-border)] py-6">
+    <footer className="bg-surface border-t border-border py-6">
       <div className="mx-auto max-w-[1120px] px-4 sm:px-8 text-center">
-        <p className="font-[family-name:var(--font-body)] font-light text-[0.8125rem] text-[var(--color-text-disabled)] tracking-[0.02em]">
+        <p className="font-body font-light text-[0.8125rem] text-text-disabled tracking-[0.02em]">
           {t("footer.copyright", { year, name: meta.name, location: meta.location })}
         </p>
+        <p className="font-mono text-[0.75rem] text-text-disabled mt-1">v{__APP_VERSION__}</p>
       </div>
     </footer>
   );

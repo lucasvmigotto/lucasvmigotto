@@ -14,15 +14,15 @@ export function Contact({ meta }: ContactProps) {
     <section
       id="contact"
       data-section="contact"
-      className="bg-[var(--color-surface)] border-t border-[var(--color-border)] py-16 lg:py-24"
+      className="bg-surface border-t border-border py-16 lg:py-24"
     >
       <div className="mx-auto max-w-[1120px] px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-12">
           <div>
-            <h2 className="font-[family-name:var(--font-heading)] font-semibold text-[1.5rem] lg:text-[2rem] leading-[1.2] tracking-[-0.02em] text-[var(--color-text-primary)] mb-4">
+            <h2 className="font-heading font-semibold text-[1.5rem] lg:text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-4">
               {t("contact.heading")}
             </h2>
-            <p className="font-[family-name:var(--font-body)] text-[0.9375rem] sm:text-base text-[var(--color-text-secondary)] leading-relaxed mb-8">
+            <p className="font-body text-[0.9375rem] sm:text-base text-text-secondary leading-relaxed mb-8">
               {t("contact.body")}
             </p>
             <Button href={`mailto:${meta.email}`}>{t("contact.ctaEmail")}</Button>
@@ -31,7 +31,7 @@ export function Contact({ meta }: ContactProps) {
           <div className="flex flex-col gap-4 justify-center">
             <a
               href={`mailto:${meta.email}`}
-              className="inline-flex items-center gap-3 font-[family-name:var(--font-body)] text-[0.9375rem] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-200 min-h-[44px]"
+              className="inline-flex items-center gap-3 font-body text-[0.9375rem] text-text-secondary hover:text-accent transition-colors duration-200 min-h-[44px]"
             >
               <Email />
               {meta.email}
@@ -40,7 +40,7 @@ export function Contact({ meta }: ContactProps) {
               href={meta.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 font-[family-name:var(--font-body)] text-[0.9375rem] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-200 min-h-[44px]"
+              className="inline-flex items-center gap-3 font-body text-[0.9375rem] text-text-secondary hover:text-accent transition-colors duration-200 min-h-[44px]"
             >
               <Phone />
               {meta.phone}
@@ -51,7 +51,7 @@ export function Contact({ meta }: ContactProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="text-text-secondary hover:text-accent transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
                 <LinkedIn />
               </a>
@@ -60,7 +60,7 @@ export function Contact({ meta }: ContactProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="text-text-secondary hover:text-accent transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
                 <GitHub />
               </a>
@@ -69,7 +69,7 @@ export function Contact({ meta }: ContactProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="text-text-secondary hover:text-accent transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
                 <Instagram />
               </a>

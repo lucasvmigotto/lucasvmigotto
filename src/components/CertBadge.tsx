@@ -11,7 +11,7 @@ export function CertBadge({ cert }: CertBadgeProps) {
       href={cert.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group shrink-0 w-[280px] flex items-center gap-4 p-4 rounded-[var(--radius-md)] bg-[var(--color-surface)] border border-[var(--color-border)] snap-start hover:scale-[1.02] transition-transform duration-200 ease-out"
+      className="group shrink-0 w-[280px] flex items-center gap-4 p-4 rounded-md bg-surface border border-border snap-start hover:scale-[1.02] transition-transform duration-200 ease-out"
     >
       <img
         src={cert.issuerSvg}
@@ -20,14 +20,10 @@ export function CertBadge({ cert }: CertBadgeProps) {
         loading="lazy"
       />
       <div className="flex-1 min-w-0">
-        <p className="font-[family-name:var(--font-heading)] font-medium text-[0.875rem] text-[var(--color-text-primary)]">
-          {cert.name}
-        </p>
-        <p className="font-[family-name:var(--font-body)] text-[0.75rem] text-[var(--color-text-disabled)]">
-          {cert.issuer}
-        </p>
+        <p className="font-heading font-medium text-[0.875rem] text-text-primary">{cert.name}</p>
+        <p className="font-body text-[0.75rem] text-text-disabled">{cert.issuer}</p>
       </div>
-      <span className="text-[var(--color-text-disabled)] group-hover:text-[var(--color-accent)] transition-colors duration-200">
+      <span className="text-text-disabled group-hover:text-accent transition-colors duration-200">
         <ArrowUpRight />
       </span>
     </a>
