@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   deploy:
-    name: Build and Deploy to lucasvmigotto/me
+    name: Build and Deploy to ${{ github.actor }}/me
     runs-on: ubuntu-latest
 
     steps:
@@ -31,21 +31,24 @@ jobs:
       - name: Build
         run: bun run build
 
+      - name: Create archive
+        run: tar -cjf dist.tar.bz2 dist/
+
       - name: Set version
         id: version
         run: |
           VERSION=$(bun -p "require('./package.json').version")
           echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
 
-      - name: Deploy to lucasvmigotto/me
+      - name: Deploy to ${{ github.actor }}/me
         run: |
           cd dist
-          git init
+          git init -b main
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "deploy: v${{ steps.version.outputs.VERSION }}" || true
-          git push --force "https://x-access-token:${{ secrets.PAT_GH_ME_REP }}@github.com/lucasvmigotto/me.git" main
+          git push --force "https://x-access-token:${{ secrets.PAT_GH_ME_REP }}@github.com/${{ github.actor }}/me.git" main
 
       - name: Create tag
         run: |
@@ -57,6 +60,6 @@ jobs:
         with:
           tag_name: ${{ steps.version.outputs.VERSION }}
           name: v${{ steps.version.outputs.VERSION }}
-          files: dist/**/*
+          files: dist.tar.bz2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

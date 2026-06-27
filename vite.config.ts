@@ -4,7 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "node:path";
 import pkg from "./package.json" with { type: "json" };
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? "/me/" : "/",
   plugins: [tailwindcss(), react()],
   resolve: {
     alias: {
@@ -14,4 +15,4 @@ export default defineConfig({
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),
   },
-});
+}));

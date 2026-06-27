@@ -13,7 +13,7 @@ await i18next
     ns: ["translation", "resume"],
     defaultNS: "translation",
     backend: {
-      loadPath: "/locales/{{lng}}/{{ns}}.json",
+      loadPath: `${import.meta.env["BASE_URL"]}locales/{{lng}}/{{ns}}.json`,
     },
     detection: {
       order: ["querystring", "path", "localStorage", "navigator"],
