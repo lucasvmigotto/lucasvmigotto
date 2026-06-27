@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
+import { useReducedMotion } from "./useReducedMotion";
 
 const SIZE = 12;
 const LERP = 0.08;
 
 export function useCursorFollower() {
+  const reducedMotion = useReducedMotion();
   const posRef = useRef({ x: 0, y: 0 });
   const targetRef = useRef({ x: 0, y: 0 });
   const rafRef = useRef(0);
@@ -12,7 +14,7 @@ export function useCursorFollower() {
   useEffect(() => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     const isSmall = window.innerWidth < 1024;
-    if (isTouch || isSmall) return;
+    if (isTouch || isSmall || reducedMotion) return;
 
     const onMouseMove = (e: MouseEvent) => {
       targetRef.current.x = e.clientX;
@@ -35,7 +37,7 @@ export function useCursorFollower() {
       document.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [reducedMotion]);
 
   return elRef;
 }
