@@ -43,97 +43,91 @@
 }
 
 /* ═══════════════════════════════════════
-   Base Reset
+   Base Reset — inside @layer base so Tailwind
+   utilities in @layer utilities can override
    ═══════════════════════════════════════ */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-}
 
-body {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: var(--color-text-secondary);
-  background-color: var(--color-bg);
-  position: relative;
-  min-height: 100svh;
-  overflow-x: clip;
-}
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 
-img,
-svg {
-  display: block;
-  max-width: 100%;
-}
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg);
+    position: relative;
+    min-height: 100svh;
+    overflow-x: clip;
+  }
 
-ul {
-  list-style: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-/* ═══════════════════════════════════════
-   Focus Ring
-   ═══════════════════════════════════════ */
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-}
+  ul {
+    list-style: none;
+  }
 
-/* ═══════════════════════════════════════
-   Selection
-   ═══════════════════════════════════════ */
+  /* Focus Ring */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
 
-::selection {
-  background-color: rgba(91, 110, 245, 0.3);
-  color: var(--color-text-primary);
-}
+  /* Selection */
+  ::selection {
+    background-color: rgba(91, 110, 245, 0.3);
+    color: var(--color-text-primary);
+  }
 
-/* ═══════════════════════════════════════
-   Background Dot Grid Texture (CSS-only)
-   ═══════════════════════════════════════ */
+  /* Background Dot Grid Texture (CSS-only) */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(91, 110, 245, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
+  }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(91, 110, 245, 0.12) 1px, transparent 1px);
-  background-size: 32px 32px;
-  pointer-events: none;
-  z-index: 0;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
-}
-
-#root {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: clip;
+  #root {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+  }
 }
 
 /* ═══════════════════════════════════════
