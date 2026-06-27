@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavScroll } from "@/hooks/useNavScroll";
 import { LangSwitcher } from "./LangSwitcher";
 
 const SECTIONS = [
@@ -14,6 +15,7 @@ const SECTIONS = [
 export function Nav() {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  const scrolled = useNavScroll();
 
   const handleNavClick = (id: string) => {
     setOpen(false);
@@ -22,7 +24,13 @@ export function Nav() {
   };
 
   return (
-    <nav className="sticky top-0 z-100 bg-[rgba(8,12,20,0.85)] backdrop-blur-[16px] border-b border-[var(--color-border)]">
+    <nav
+      className={`sticky top-0 z-100 border-b transition-colors duration-300 ease-out ${
+        scrolled
+          ? "bg-[rgba(8,12,20,0.85)] backdrop-blur-[16px] border-[var(--color-border)]"
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <div className="mx-auto max-w-[1120px] px-4 sm:px-8 flex items-center justify-between h-16">
         <button
           type="button"

@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { Certification, SkillCategories } from "@/types/resume";
 import { CertBadge } from "./CertBadge";
 import { Card } from "./ui/Card";
@@ -21,6 +22,7 @@ const CATEGORIES = [
 export function Skills({ skills, certifications }: SkillsProps) {
   const { t } = useTranslation();
   const tk = t as (key: string) => string;
+  const { ref, isVisible, getChildDelay } = useScrollReveal({ staggerDelay: 100 });
 
   return (
     <SectionWrapper
@@ -29,24 +31,32 @@ export function Skills({ skills, certifications }: SkillsProps) {
       eyebrow={t("skills.eyebrow")}
       heading={t("skills.heading")}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {CATEGORIES.map(({ key, icon: Icon, labelKey }) => (
-          <Card key={key} variant="glass">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-[var(--color-accent)]">
-                <Icon />
-              </span>
-              <span className="font-[family-name:var(--font-heading)] font-medium text-[0.75rem] uppercase tracking-[0.08em] text-[var(--color-text-primary)]">
-                {tk(`skills.${labelKey}`)}
-              </span>
+      <div ref={ref}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {CATEGORIES.map(({ key, icon: Icon, labelKey }, i) => (
+            <div
+              key={key}
+              className={`animate-fade-up ${isVisible ? "is-visible" : ""}`}
+              style={{ animationDelay: getChildDelay(i) }}
+            >
+              <Card variant="glass">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-[var(--color-accent)]">
+                    <Icon />
+                  </span>
+                  <span className="font-[family-name:var(--font-heading)] font-medium text-[0.75rem] uppercase tracking-[0.08em] text-[var(--color-text-primary)]">
+                    {tk(`skills.${labelKey}`)}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {skills[key].map((skill) => (
+                    <Pill key={skill}>{skill}</Pill>
+                  ))}
+                </div>
+              </Card>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {skills[key].map((skill) => (
-                <Pill key={skill}>{skill}</Pill>
-              ))}
-            </div>
-          </Card>
-        ))}
+          ))}
+        </div>
       </div>
 
       {certifications.length > 0 && (
