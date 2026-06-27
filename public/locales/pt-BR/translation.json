@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "experience": "Experiência",
+    "skills": "Skills",
+    "education": "Formação",
+    "contact": "Contato"
+  },
+  "hero": {
+    "eyebrow": "Senior Software Engineer & Cloud Architect",
+    "ctaPrimary": "Entrar em Contato",
+    "ctaGhost": "Ver Currículo",
+    "scrollLabel": "Scroll"
+  },
+  "about": {
+    "eyebrow": "Sobre",
+    "heading": "Polyglot Engineer at the intersection of Cloud & AI",
+    "statYears": "Anos de Experiência",
+    "statClouds": "Clouds",
+    "statCerts": "Certificações"
+  },
+  "experience": {
+    "eyebrow": "Experiência",
+    "heading": "Trajetória Profissional"
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "heading": "Arsenal Técnico",
+    "categoryLanguages": "Linguagens & Frameworks",
+    "categoryCloud": "Cloud & Infraestrutura",
+    "categoryDevops": "DevOps & Arquitetura",
+    "categoryData": "Dados & IA",
+    "certificationsLabel": "Certificações"
+  },
+  "education": {
+    "eyebrow": "Formação",
+    "heading": "Percurso Acadêmico",
+    "inProgress": "Em andamento",
+    "completed": "Concluído"
+  },
+  "contact": {
+    "heading": "Vamos construir algo juntos",
+    "body": "Aberto a posições sênior, consultoria e liderança técnica.",
+    "ctaEmail": "Enviar Email",
+    "ctaPhone": "WhatsApp"
+  },
+  "footer": {
+    "copyright": "Lucas Vidor Migotto · São Paulo, Brasil"
+  },
+  "common": {
+    "present": "atualidade"
+  }
+}

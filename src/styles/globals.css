@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════
+   Design Tokens
+   ═══════════════════════════════════════ */
+
+@theme {
+  /* Colors */
+  --color-bg: #080C14;
+  --color-surface: #0F1724;
+  --color-surface-raised: #16213A;
+  --color-border: #1E2D4A;
+  --color-text-primary: #E8EDF5;
+  --color-text-secondary: #8A9BBD;
+  --color-text-disabled: #4A5878;
+  --color-accent: #5B6EF5;
+  --color-accent-glow: rgba(91, 110, 245, 0.15);
+  --color-gold: #D4A843;
+  --color-success: #3DC990;
+
+  /* Typography */
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--color-border);
+  --shadow-card-hover: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(91, 110, 245, 0.3), 0 0 32px rgba(91, 110, 245, 0.06);
+  --shadow-btn: 0 0 20px rgba(91, 110, 245, 0.3);
+  --shadow-btn-hover: 0 0 32px rgba(91, 110, 245, 0.55);
+
+  /* Breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* ═══════════════════════════════════════
+   Base Reset — inside @layer base so Tailwind
+   utilities in @layer utilities can override
+   ═══════════════════════════════════════ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg);
+    position: relative;
+    min-height: 100svh;
+    overflow-x: clip;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  /* Focus Ring */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(91, 110, 245, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  /* Background Dot Grid Texture (CSS-only) */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(91, 110, 245, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 80%);
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+}
+
+/* ═══════════════════════════════════════
+   Keyframe Animations
+   All wrapped in reduced-motion guard
+   ═══════════════════════════════════════ */
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes spineGrow {
+    from {
+      height: 0;
+    }
+    to {
+      height: 100%;
+    }
+  }
+
+  @keyframes letterSpaceExpanded {
+    from {
+      letter-spacing: 0.04em;
+    }
+    to {
+      letter-spacing: 0.12em;
+    }
+  }
+
+  @keyframes scrollPulse {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════
+   Animation Utility Classes
+   ═══════════════════════════════════════ */
+
+/* Plays on mount by default (hero page-load stagger) */
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll-reveal containers: children hidden until container gets .is-visible */
+  [data-reveal] .animate-fade-up {
+    opacity: 0;
+    animation: none;
+  }
+
+  [data-reveal].is-visible .animate-fade-up {
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out both;
+  }
+
+  .animate-spine-grow {
+    height: 0;
+  }
+
+  .animate-spine-grow.is-visible {
+    animation: spineGrow 1.2s ease-out both;
+  }
+
+  .animate-letter-space {
+    animation: letterSpaceExpanded 0.4s ease-out both;
+  }
+
+  .animate-scroll-pulse {
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════
+   Glassmorphism Fallback
+   ═══════════════════════════════════════ */
+
+.glass {
+  background: var(--color-surface);
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+  .glass {
+    background: rgba(15, 23, 36, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* ═══════════════════════════════════════
+   Utility: Hidden Scrollbar
+   ═══════════════════════════════════════ */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ═══════════════════════════════════════
+   Touch Device Overrides
+   ═══════════════════════════════════════ */
+
+@media (hover: none) and (pointer: coarse) {
+  .hover-only {
+    display: none;
+  }
+}

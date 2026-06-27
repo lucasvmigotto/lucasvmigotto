@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Senior Software Engineer & Cloud Architect",
+    "ctaPrimary": "Get in Touch",
+    "ctaGhost": "View Resume",
+    "scrollLabel": "Scroll"
+  },
+  "about": {
+    "eyebrow": "About",
+    "heading": "Polyglot Engineer at the intersection of Cloud & AI",
+    "statYears": "Years of Experience",
+    "statClouds": "Clouds",
+    "statCerts": "Certifications"
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "heading": "Professional Journey"
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "heading": "Technical Arsenal",
+    "categoryLanguages": "Languages & Frameworks",
+    "categoryCloud": "Cloud & Infrastructure",
+    "categoryDevops": "DevOps & Architecture",
+    "categoryData": "Data & AI",
+    "certificationsLabel": "Certifications"
+  },
+  "education": {
+    "eyebrow": "Education",
+    "heading": "Academic Path",
+    "inProgress": "In Progress",
+    "completed": "Completed"
+  },
+  "contact": {
+    "heading": "Let's build something together",
+    "body": "Open to senior roles, consulting, and technical leadership opportunities.",
+    "ctaEmail": "Send Email",
+    "ctaPhone": "WhatsApp"
+  },
+  "footer": {
+    "copyright": "Lucas Vidor Migotto · São Paulo, Brazil"
+  },
+  "common": {
+    "present": "Present"
+  }
+}
