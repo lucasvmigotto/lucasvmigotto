@@ -60,7 +60,7 @@ export function Skills({ skills, certifications }: SkillsProps) {
           <span className="block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent mb-4">
             {t("skills.certificationsLabel")}
           </span>
-          <div className="flex justify-between gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 pt-2">
+          <div className="flex justify-around gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 pt-2">
             {certifications.map((cert) => (
               <CertBadge key={cert.name} cert={cert} />
             ))}

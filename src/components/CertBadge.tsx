@@ -14,7 +14,7 @@ export function CertBadge({ cert }: CertBadgeProps) {
       className="group shrink-0 w-[280px] flex items-center gap-4 p-4 rounded-md bg-surface border border-border snap-start hover:scale-[1.02] transition-transform duration-200 ease-out"
     >
       <img
-        src={`${import.meta.env["REACT_APP_BASE_URL"] ?? ""}${cert.issuerSvg}`}
+        src={`${import.meta.env["BASE_URL"] !== "/" ? import.meta.env["BASE_URL"] : ""}${cert.issuerSvg}`}
         alt={`${cert.issuer} logo`}
         className="w-12 h-12 object-contain shrink-0"
         loading="lazy"
