@@ -61,6 +61,7 @@ export interface Meta {
   github: string;
   linkedin: string;
   instagram: string;
+  facebook: string;
 }
 
 export interface ResumeJson {

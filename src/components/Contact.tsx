@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import type { Meta } from "@/types/resume";
 import { Button } from "./ui/Button";
-import { Email, GitHub, Instagram, LinkedIn, Phone } from "./ui/icons";
+import { Email, Facebook, GitHub, Instagram, LinkedIn, Phone } from "./ui/icons";
 
 interface ContactProps {
   meta: Meta;
@@ -72,6 +72,15 @@ export function Contact({ meta }: ContactProps) {
                 className="text-text-secondary hover:text-accent transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
                 <Instagram />
+              </a>
+              <a
+                href={meta.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-text-secondary hover:text-accent transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              >
+                <Facebook />
               </a>
             </div>
           </div>
