@@ -11,13 +11,13 @@
     "eyebrow": "Senior Software Engineer & Cloud Architect",
     "ctaPrimary": "Entrar em Contato",
     "ctaGhost": "Ver Currículo",
-    "scrollLabel": "Scroll"
+    "scrollLabel": "Explorar"
   },
   "about": {
     "eyebrow": "Sobre",
     "heading": "Polyglot Engineer at the intersection of Cloud & AI",
     "statYears": "Anos de Experiência",
-    "statClouds": "Clouds",
+    "statClouds": "Nuvens",
     "statCerts": "Certificações"
   },
   "experience": {
@@ -26,21 +26,21 @@
   },
   "skills": {
     "eyebrow": "Skills",
-    "heading": "Arsenal Técnico",
+    "heading": "Habilidades Técnicas",
     "categoryLanguages": "Linguagens & Frameworks",
-    "categoryCloud": "Cloud & Infraestrutura",
+    "categoryCloud": "Nuvem & Infraestrutura",
     "categoryDevops": "DevOps & Arquitetura",
     "categoryData": "Dados & IA",
     "certificationsLabel": "Certificações"
   },
   "education": {
     "eyebrow": "Formação",
-    "heading": "Percurso Acadêmico",
+    "heading": "Jornada Acadêmica",
     "inProgress": "Em andamento",
     "completed": "Concluído"
   },
   "contact": {
-    "heading": "Vamos construir algo juntos",
+    "heading": "Vamos construir algo juntos!",
     "body": "Aberto a posições sênior, consultoria e liderança técnica.",
     "ctaEmail": "Enviar Email",
     "ctaPhone": "WhatsApp"
