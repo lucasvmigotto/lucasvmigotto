@@ -1,6 +1,6 @@
 {
   "name": "lucasvmigotto",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "module",
   "private": true,
   "scripts": {
@@ -9,9 +9,11 @@
     "preview": "vite preview",
     "lint": "biome check",
     "lint:fix": "biome check --write",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "bun test"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.9.0",
     "react": "19",
     "react-dom": "19"
   },
