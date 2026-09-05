@@ -50,3 +50,63 @@ describe("resume.json experience data", () => {
     }
   });
 });
+
+describe("resume.json meta and identity", () => {
+  for (const locale of ["en", "pt-BR"] as const) {
+    test(`${locale} meta is complete`, () => {
+      const { meta } = loadResume(locale);
+      expect(meta.name.length).toBeGreaterThan(0);
+      expect(meta.title.length).toBeGreaterThan(0);
+      expect(meta.email).toContain("@");
+      expect(meta.location.length).toBeGreaterThan(0);
+    });
+  }
+});
+
+describe("resume.json all sections", () => {
+  for (const locale of ["en", "pt-BR"] as const) {
+    const resume = loadResume(locale);
+
+    test(`${locale} education is populated and typed`, () => {
+      expect(resume.education.length).toBeGreaterThan(0);
+      for (const e of resume.education) {
+        expect(e.institution.length).toBeGreaterThan(0);
+        expect(e.degree.length).toBeGreaterThan(0);
+      }
+    });
+
+    test(`${locale} certifications are populated`, () => {
+      expect(resume.certifications.length).toBeGreaterThan(0);
+      for (const c of resume.certifications) {
+        expect(c.name.length).toBeGreaterThan(0);
+        expect(c.issuer.length).toBeGreaterThan(0);
+      }
+    });
+
+    test(`${locale} skills expose all four categories`, () => {
+      expect(Object.keys(resume.skills).sort()).toEqual(
+        ["cloud_infrastructure", "data_ai", "devops_architecture", "languages_frameworks"].sort(),
+      );
+      for (const items of Object.values(resume.skills)) {
+        expect(items.length).toBeGreaterThan(0);
+      }
+    });
+
+    test(`${locale} languages are populated`, () => {
+      expect(resume.languages.length).toBeGreaterThan(0);
+      for (const l of resume.languages) {
+        expect(l.language.length).toBeGreaterThan(0);
+        expect(l.level.length).toBeGreaterThan(0);
+      }
+    });
+  }
+
+  test("en and pt-BR have matching education/certification/language counts", () => {
+    const en = loadResume("en");
+    const pt = loadResume("pt-BR");
+    expect(en.education.length).toBe(pt.education.length);
+    expect(en.certifications.length).toBe(pt.certifications.length);
+    expect(en.languages.length).toBe(pt.languages.length);
+    expect(Object.keys(en.skills).sort()).toEqual(Object.keys(pt.skills).sort());
+  });
+});
