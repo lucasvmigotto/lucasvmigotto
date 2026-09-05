@@ -3,13 +3,16 @@ export interface Period {
   end: string | null;
 }
 
+export interface ExperienceRole {
+  title: string;
+  period: Period;
+  bullets: string[];
+}
+
 export interface Experience {
   company: string;
   location: string;
-  role: string;
-  period: Period;
-  current: boolean;
-  bullets: string[];
+  roles: ExperienceRole[]; // ordered most-recent-first
 }
 
 export interface SkillCategories {
@@ -57,7 +60,6 @@ export interface Meta {
   phone: string;
   whatsapp: string;
   location: string;
-  pdfUrl: string | null;
   github: string;
   linkedin: string;
   instagram: string;
