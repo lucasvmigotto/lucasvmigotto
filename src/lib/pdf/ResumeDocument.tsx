@@ -182,7 +182,7 @@ export function ResumeDocument({ resume, locale }: ResumeDocumentProps) {
           <View style={styles.contactRow}>
             <Text>{data.email}</Text>
             <Text>•</Text>
-            <Text>{data.phone}</Text>
+            <Text>{data.whatsappUsername}</Text>
             <Text>•</Text>
             <Text>{data.location}</Text>
             <Text>•</Text>
