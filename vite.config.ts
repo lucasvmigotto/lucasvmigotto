@@ -5,7 +5,9 @@ import { resolve } from "node:path";
 import pkg from "./package.json" with { type: "json" };
 
 export default defineConfig(({ command }) => ({
-  base: command === "build" ? "/me/" : "/",
+  base: command === "build" && !!import.meta.env["PATH_APPEND"]
+    ? `${import.meta.env["PATH_APPEND"]}`
+    : "/",
   plugins: [tailwindcss(), react()],
   resolve: {
     alias: {
