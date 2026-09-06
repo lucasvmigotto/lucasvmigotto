@@ -1,16 +1,17 @@
 import { useTranslation } from "react-i18next";
-import type { Meta } from "@/types/resume";
+import { downloadResumePdf } from "@/lib/pdf/downloadResumePdf";
+import type { ResumeJson } from "@/types/resume";
 import { AbstractGeometry } from "./AbstractGeometry";
 import { ScrollIndicator } from "./ScrollIndicator";
 import { Button } from "./ui/Button";
 
 interface HeroProps {
-  meta: Meta;
-  objectiveShort: string;
+  resume: ResumeJson;
 }
 
-export function Hero({ meta, objectiveShort }: HeroProps) {
-  const { t } = useTranslation();
+export function Hero({ resume }: HeroProps) {
+  const { t, i18n } = useTranslation();
+  const { meta, objectiveShort } = resume;
 
   return (
     <section
@@ -40,11 +41,9 @@ export function Hero({ meta, objectiveShort }: HeroProps) {
 
           <div className="animate-fade-up flex flex-wrap gap-4 [animation-delay:700ms]">
             <Button href="#contact">{t("hero.ctaPrimary")}</Button>
-            {meta.pdfUrl && (
-              <Button variant="ghost" href={meta.pdfUrl} target="_blank" rel="noopener noreferrer">
-                {t("hero.ctaGhost")}
-              </Button>
-            )}
+            <Button variant="ghost" onClick={() => downloadResumePdf(resume, i18n.language)}>
+              {t("hero.ctaGhost")}
+            </Button>
           </div>
         </div>
       </div>

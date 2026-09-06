@@ -21,7 +21,7 @@ export function App() {
       <CursorFollower />
       <Nav />
       <main>
-        <Hero meta={resume.meta} objectiveShort={resume.objectiveShort} />
+        <Hero resume={resume} />
         <About resume={resume} />
         <Experience experience={resume.experience} />
         <Skills skills={resume.skills} certifications={resume.certifications} />
