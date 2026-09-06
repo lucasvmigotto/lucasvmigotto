@@ -43,7 +43,6 @@ export interface TranslationJson {
     heading: string;
     body: string;
     ctaEmail: string;
-    ctaPhone: string;
   };
   footer: {
     copyright: string;
