@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import type { Meta } from "@/types/resume";
 import { Button } from "./ui/Button";
-import { Email, Facebook, GitHub, Instagram, LinkedIn, Phone } from "./ui/icons";
+import { Email, Facebook, GitHub, Instagram, LinkedIn, WhatsApp } from "./ui/icons";
 
 interface ContactProps {
   meta: Meta;
@@ -37,13 +37,13 @@ export function Contact({ meta }: ContactProps) {
               {meta.email}
             </a>
             <a
-              href={meta.whatsapp}
+              href={meta.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 font-body text-[0.9375rem] text-text-secondary hover:text-accent transition-colors duration-200 min-h-[44px]"
             >
-              <Phone />
-              {meta.phone}
+              <WhatsApp />
+              {meta.whatsappUsername}
             </a>
             <div className="flex items-center gap-4 pt-2">
               <a

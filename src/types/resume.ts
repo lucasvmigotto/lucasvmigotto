@@ -57,8 +57,8 @@ export interface Meta {
   name: string;
   title: string;
   email: string;
-  phone: string;
-  whatsapp: string;
+  whatsappUsername: string;
+  whatsappLink: string;
   location: string;
   github: string;
   linkedin: string;

@@ -2,6 +2,10 @@
 
 FROM dhi.io/bun:1-debian13-dev AS builder
 
+ARG _PATH_APPEND=""
+
+ENV VITE_PATH_APPEND="${_PATH_APPEND}"
+
 WORKDIR /app
 
 RUN --mount=type=bind,source=package.json,target=package.json \

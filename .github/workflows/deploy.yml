@@ -9,12 +9,16 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  deploy:
-    name: Build and Deploy to ${{ github.actor }}/me
-    runs-on: ubuntu-latest
+  ci:
+    name: CI (lint, typecheck, test, build)
+    runs-on: ubuntu-26.04
+    permissions:
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.VERSION }}
 
     steps:
       - name: Checkout
@@ -49,26 +53,81 @@ jobs:
           VERSION=$(bun -p "require('./package.json').version")
           echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
 
-      - name: Deploy to ${{ github.actor }}/me
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ steps.version.outputs.VERSION }}
+          path: |
+            dist/
+            dist.tar.bz2
+          retention-days: 7
+          if-no-files-found: error
+
+  cd:
+    name: CD (deploy to Cloudflare R2, tag, release)
+    runs-on: ubuntu-26.04
+    needs: [ci]
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ needs.ci.outputs.version }}
+          path: .
+
+      - name: Validate R2 endpoint
         run: |
-          cd dist
-          git init -b main
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "deploy: v${{ steps.version.outputs.VERSION }}" || true
-          git push --force "https://x-access-token:${{ secrets.PAT_GH_ME_REP }}@github.com/${{ github.actor }}/me.git" main
+          ENDPOINT="${{ vars.CLOUDFLARE_R2_ENDPOINT_S3_CLIENT }}"
+          if [ -z "$ENDPOINT" ]; then
+            echo "::error::CLOUDFLARE_R2_ENDPOINT_S3_CLIENT repo variable is not set"
+            exit 1
+          fi
+          case "$ENDPOINT" in
+            https://*) echo "R2 endpoint OK: $ENDPOINT" ;;
+            *) echo "::error::CLOUDFLARE_R2_ENDPOINT_S3_CLIENT must start with https:// (got: $ENDPOINT)"; exit 1 ;;
+          esac
+
+      - name: Ensure AWS CLI
+        run: |
+          if ! command -v aws >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq awscli
+          fi
+          aws --version
+
+      - name: Sync static site to Cloudflare R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCOUNT_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_ACCOUNT_SECRET }}
+          AWS_DEFAULT_REGION: auto
+          AWS_EC2_METADATA_DISABLED: "true"
+        run: |
+          ENDPOINT="${{ vars.CLOUDFLARE_R2_ENDPOINT_S3_CLIENT }}"
+          BUCKET="${{ vars.CLOUDFLARE_R2_BUCKET_ID }}"
+          aws s3 sync dist/ "s3://${BUCKET}" \
+            --endpoint-url "${ENDPOINT}" \
+            --delete \
+            --cache-control "public, max-age=31536000, immutable"
+          aws s3 cp dist/index.html "s3://${BUCKET}/index.html" \
+            --endpoint-url "${ENDPOINT}" \
+            --cache-control "no-cache" \
+            --content-type "text/html"
 
       - name: Create tag
         run: |
-          git tag -f ${{ steps.version.outputs.VERSION }}
-          git push --force origin ${{ steps.version.outputs.VERSION }}
+          git tag -f ${{ needs.ci.outputs.version }}
+          git push --force origin ${{ needs.ci.outputs.version }}
 
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.version.outputs.VERSION }}
-          name: v${{ steps.version.outputs.VERSION }}
+          tag_name: ${{ needs.ci.outputs.version }}
+          name: v${{ needs.ci.outputs.version }}
           files: dist.tar.bz2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
