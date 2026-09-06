@@ -67,7 +67,7 @@
             "location": "São Paulo",
             "roles": [
                 {
-                    "title": "Middle/Senior Backend Developer",
+                    "title": "Middle Backend Developer",
                     "period": {
                         "start": "2022-05",
                         "end": "2022-11"
@@ -84,7 +84,7 @@
             "location": "Curitiba",
             "roles": [
                 {
-                    "title": "Full Stack Middle Developer",
+                    "title": "Middle Fullstack Developer",
                     "period": {
                         "start": "2021-03",
                         "end": "2022-05"
@@ -101,7 +101,7 @@
             "location": "São Paulo",
             "roles": [
                 {
-                    "title": "Junior Developer",
+                    "title": "Junior Fullstack Developer",
                     "period": {
                         "start": "2018-02",
                         "end": "2020-07"
