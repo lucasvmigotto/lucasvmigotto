@@ -19,7 +19,7 @@ export interface PdfResumeData {
   name: string;
   title: string;
   email: string;
-  phone: string;
+  whatsappUsername: string;
   location: string;
   github: string;
   linkedin: string;
@@ -57,7 +57,7 @@ export function buildResumeData(
     name: resume.meta.name,
     title: resume.meta.title,
     email: resume.meta.email,
-    phone: resume.meta.phone,
+    whatsappUsername: resume.meta.whatsappUsername,
     location: resume.meta.location,
     github: resume.meta.github,
     linkedin: resume.meta.linkedin,
