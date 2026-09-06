@@ -7,8 +7,8 @@ const fixture: ResumeJson = {
     name: "Lucas Vidor Migotto",
     title: "Senior Software Engineer",
     email: "a@b.com",
-    phone: "+55 11 999",
-    whatsapp: "https://wa.me/1",
+    whatsappUsername: "@lucasvmigotto",
+    whatsappLink: "https://wa.me/lucasvmigotto",
     location: "São Paulo, Brazil",
     github: "https://github.com/x",
     linkedin: "https://linkedin.com/x",
@@ -56,6 +56,7 @@ describe("buildResumeData", () => {
     expect(data.name).toBe("Lucas Vidor Migotto");
     expect(data.title).toBe("Senior Software Engineer");
     expect(data.email).toBe("a@b.com");
+    expect(data.whatsappUsername).toBe("@lucasvmigotto");
   });
 
   test("maps experience into grouped sections with current flag", () => {
