@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#080C14"/>
+  <rect x="96" y="175" width="280" height="280" rx="56" fill="#0F172A" stroke="#1E2D4A" stroke-width="6"/>
+  <g stroke="#1E2D4A" stroke-width="9">
+    <line x1="168" y1="247" x2="288" y2="231"/>
+    <line x1="168" y1="247" x2="168" y2="383"/>
+    <line x1="288" y1="231" x2="288" y2="383"/>
+    <line x1="168" y1="383" x2="288" y2="383"/>
+    <line x1="288" y1="231" x2="328" y2="295"/>
+    <line x1="288" y1="383" x2="328" y2="295"/>
+  </g>
+  <circle cx="168" cy="247" r="18" fill="#5B6EF5"/>
+  <circle cx="288" cy="231" r="18" fill="#5B6EF5"/>
+  <circle cx="168" cy="383" r="18" fill="#5B6EF5"/>
+  <circle cx="288" cy="383" r="18" fill="#5B6EF5"/>
+  <circle cx="328" cy="295" r="18" fill="#D4A843"/>
+  <text x="440" y="300" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="70" font-weight="700" fill="#F1F5F9">Lucas Vidor Migotto</text>
+  <text x="444" y="368" font-family="'Inter', system-ui, sans-serif" font-size="36" fill="#94A3B8">Senior Software Engineer &amp; Cloud Architect</text>
+  <text x="444" y="418" font-family="'Inter', system-ui, sans-serif" font-size="28" fill="#64748B">Cloud · Backend · Applied AI</text>
+</svg>
