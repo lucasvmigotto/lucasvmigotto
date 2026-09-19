@@ -18,7 +18,7 @@ export function Hero({ resume }: HeroProps) {
 
   return (
     <section
-      id="hero"
+      id="home"
       data-section="hero"
       className="relative min-h-svh flex items-center overflow-hidden"
     >
@@ -26,7 +26,7 @@ export function Hero({ resume }: HeroProps) {
 
       <div className="mx-auto max-w-[1120px] px-4 sm:px-8 w-full">
         <div className="max-w-3xl">
-          <span className="animate-fade-up block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent mb-6 [animation-delay:200ms]">
+          <span className="animate-fade-up block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent-text mb-6 [animation-delay:200ms]">
             {meta.title}
           </span>
 

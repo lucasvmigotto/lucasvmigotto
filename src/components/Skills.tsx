@@ -37,7 +37,7 @@ export function Skills({ skills, certifications }: SkillsProps) {
             <div key={key} className="animate-fade-up" style={{ animationDelay: getChildDelay(i) }}>
               <Card variant="glass">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-accent">
+                  <span className="text-accent-text">
                     <Icon />
                   </span>
                   <span className="font-heading font-medium text-[0.75rem] uppercase tracking-[0.08em] text-text-primary">
@@ -57,7 +57,7 @@ export function Skills({ skills, certifications }: SkillsProps) {
 
       {certifications.length > 0 && (
         <div className="mt-12">
-          <span className="block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent mb-4">
+          <span className="block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent-text mb-4">
             {t("skills.certificationsLabel")}
           </span>
           <div className="flex justify-around gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 pt-2">

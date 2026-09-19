@@ -18,8 +18,8 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const scrolled = useNavScroll();
 
-  const handleNavClick = (id: string) => {
-    setOpen(false);
+  const handleNavClick = (id: string, closeMenu = true) => {
+    if (closeMenu) setOpen(false);
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -82,6 +82,10 @@ export function Nav() {
               <a
                 key={id}
                 href={`#${id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(id);
+                }}
                 className="font-body text-[0.9375rem] text-text-secondary hover:text-accent transition-colors duration-200 py-3 min-h-[44px] flex items-center"
               >
                 {t(`nav.${labelKey}`)}

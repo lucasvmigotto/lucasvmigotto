@@ -13,8 +13,9 @@
   --color-text-primary: #E8EDF5;
   --color-text-secondary: #8A9BBD;
   --color-text-disabled: #7A8FC8;
-  --color-accent: #5B6EF5;
-  --color-accent-glow: rgba(91, 110, 245, 0.15);
+  --color-accent: #4655DC;
+  --color-accent-text: #8AA8FF;
+  --color-accent-glow: rgba(70, 85, 220, 0.15);
   --color-gold: #D4A843;
   --color-success: #3DC990;
 
