@@ -39,12 +39,13 @@ mock.module("@/lib/pdf/downloadResumePdf", () => ({
 }));
 
 describe("Hero", () => {
-  test("renders split name across two headings", () => {
-    const { getAllByRole } = renderWithI18n(<Hero resume={resume} />);
-    const headings = getAllByRole("heading", { level: 1 });
-    expect(headings.length).toBe(2);
-    expect(headings[0]?.textContent).toBe("Lucas");
-    expect(headings[1]?.textContent).toBe("Vidor Migotto");
+  test("renders single h1 with split name across two lines", () => {
+    const { getByRole } = renderWithI18n(<Hero resume={resume} />);
+    const heading = getByRole("heading", { level: 1 });
+    expect(heading).toBeTruthy();
+    expect(heading.textContent).toContain("Lucas");
+    expect(heading.textContent).toContain("Vidor Migotto");
+    expect(heading.querySelectorAll("span")).toHaveLength(2);
   });
 
   test("renders title and objective short", () => {

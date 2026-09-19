@@ -12,6 +12,9 @@ interface HeroProps {
 export function Hero({ resume }: HeroProps) {
   const { t, i18n } = useTranslation();
   const { meta, objectiveShort } = resume;
+  const nameParts = meta.name.split(" ");
+  const firstName = nameParts[0];
+  const lastName = nameParts.slice(1).join(" ");
 
   return (
     <section
@@ -27,12 +30,10 @@ export function Hero({ resume }: HeroProps) {
             {meta.title}
           </span>
 
-          <h1 className="animate-fade-up font-heading font-bold text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.03em] text-text-primary [animation-delay:350ms]">
-            {meta.name.split(" ")[0]}
-          </h1>
-
-          <h1 className="animate-fade-up font-heading font-bold text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.03em] text-text-primary mb-8 [animation-delay:450ms]">
-            {meta.name.split(" ").slice(1).join(" ")}
+          <h1 className="font-heading font-bold text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.03em] text-text-primary mb-8">
+            <span className="animate-fade-up block [animation-delay:350ms]">{firstName}</span>
+            <br />
+            <span className="animate-fade-up block [animation-delay:450ms]">{lastName}</span>
           </h1>
 
           <p className="animate-fade-up max-w-xl font-body text-[0.9375rem] sm:text-base text-text-secondary leading-relaxed mb-10 [animation-delay:580ms]">
