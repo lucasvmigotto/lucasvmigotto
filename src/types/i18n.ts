@@ -58,5 +58,6 @@ export interface TranslationJson {
   };
   common: {
     present: string;
+    skipToMain: string;
   };
 }

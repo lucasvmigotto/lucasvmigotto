@@ -9,6 +9,7 @@ import { Nav } from "./components/Nav";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { CursorFollower } from "./components/ui/CursorFollower";
+import { SkipLink } from "./components/ui/SkipLink";
 import { useResume } from "./hooks/useResume";
 
 export function App() {
@@ -19,9 +20,10 @@ export function App() {
 
   return (
     <>
+      <SkipLink />
       <CursorFollower />
       <Nav />
-      <main>
+      <main id="main-content">
         <Hero resume={resume} />
         <About resume={resume} />
         <Experience experience={resume.experience} />

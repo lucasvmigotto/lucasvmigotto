@@ -57,6 +57,7 @@
     "copyright": "Lucas Vidor Migotto · São Paulo, Brasil"
   },
   "common": {
-    "present": "atualidade"
+    "present": "atualidade",
+    "skipToMain": "Pular para o conteúdo principal"
   }
 }
