@@ -4,6 +4,7 @@
     "about": "Sobre",
     "experience": "Experiência",
     "skills": "Skills",
+    "projects": "Projetos",
     "education": "Formação",
     "contact": "Contato"
   },
@@ -43,6 +44,14 @@
     "heading": "Vamos construir algo juntos!",
     "body": "Aberto a posições sênior, consultoria e liderança técnica.",
     "ctaEmail": "Enviar Email"
+  },
+  "projects": {
+    "eyebrow": "Projetos",
+    "heading": "Trabalhos Selecionados",
+    "featuredLabel": "Projetos em Destaque",
+    "otherLabel": "Outros Projetos",
+    "viewCode": "Ver Código",
+    "viewLive": "Ver Online"
   },
   "footer": {
     "copyright": "Lucas Vidor Migotto · São Paulo, Brasil"

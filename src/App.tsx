@@ -6,6 +6,7 @@ import { Experience } from "./components/Experience";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
 import { Nav } from "./components/Nav";
+import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { CursorFollower } from "./components/ui/CursorFollower";
 import { useResume } from "./hooks/useResume";
@@ -25,6 +26,7 @@ export function App() {
         <About resume={resume} />
         <Experience experience={resume.experience} />
         <Skills skills={resume.skills} certifications={resume.certifications} />
+        <Projects projects={resume.projects} />
         <Education education={resume.education} />
         <Contact meta={resume.meta} />
       </main>

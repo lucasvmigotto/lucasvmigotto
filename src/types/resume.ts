@@ -66,6 +66,25 @@ export interface Meta {
   facebook: string;
 }
 
+export interface Project {
+  slug: string;
+  name: string;
+  role: string;
+  period: Period;
+  summary: string;
+  description: string;
+  problem: string;
+  stack: string[];
+  highlights: string[];
+  links: {
+    repo?: string;
+    live?: string;
+  };
+  image: string;
+  category: string[];
+  featured: boolean;
+}
+
 export interface ResumeJson {
   meta: Meta;
   objectiveShort: string;
@@ -75,4 +94,5 @@ export interface ResumeJson {
   certifications: Certification[];
   education: Education[];
   languages: Language[];
+  projects: Project[];
 }

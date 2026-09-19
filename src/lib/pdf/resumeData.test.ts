@@ -45,6 +45,7 @@ const fixture: ResumeJson = {
     },
   ],
   languages: [{ language: "Portuguese", level: "Native" }],
+  projects: [],
 };
 
 const fmt = (start: string, end: string | null) => (end ? `${start}–${end}` : `${start}–now`);
