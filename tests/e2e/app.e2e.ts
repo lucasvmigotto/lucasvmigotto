@@ -62,8 +62,8 @@ for (const locale of LOCALES) {
 
     test("resume PDF download triggers", async ({ page }) => {
       const downloadPromise = page.waitForEvent("download", { timeout: 30000 });
-      const viewResumeBtn = page.locator('button:has-text("View Resume"), button:has-text("Ver Currículo")').first();
-      await viewResumeBtn.click();
+      const downloadBtn = page.locator('button:has-text("Download Resume"), button:has-text("Baixar Currículo")').first();
+      await downloadBtn.click();
       const download = await downloadPromise;
       expect(download.suggestedFilename()).toMatch(/lucas-vidor-migotto-cv-/);
     });

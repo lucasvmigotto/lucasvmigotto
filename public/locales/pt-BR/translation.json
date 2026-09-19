@@ -11,7 +11,9 @@
   "hero": {
     "eyebrow": "Senior Software Engineer & Cloud Architect",
     "ctaPrimary": "Entrar em Contato",
-    "ctaGhost": "Ver Currículo",
+    "ctaGhost": "Baixar Currículo",
+    "ctaGhostLoading": "Baixando…",
+    "downloadError": "Não foi possível baixar o currículo. Tente novamente.",
     "scrollLabel": "Explorar"
   },
   "about": {

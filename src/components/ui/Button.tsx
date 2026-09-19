@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { Spinner } from "./icons";
 
 type ButtonVariant = "primary" | "ghost";
 
@@ -7,6 +8,8 @@ interface ButtonBaseProps {
   variant?: ButtonVariant;
   className?: string;
   children: ReactNode;
+  loading?: boolean;
+  loadingText?: string;
 }
 
 type ButtonAsAnchor = ButtonBaseProps & AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
@@ -31,23 +34,47 @@ const VARIANT_CLASSES: Record<ButtonVariant, string[]> = {
   ],
 };
 
-export function Button(props: ButtonProps) {
-  const { variant = "primary", className, children } = props;
-  const classes = cn(BASE_CLASSES, VARIANT_CLASSES[variant], className);
+export function Button({
+  variant = "primary",
+  className,
+  children,
+  loading = false,
+  loadingText,
+  ...rest
+}: ButtonProps) {
+  const classes = cn(
+    BASE_CLASSES,
+    VARIANT_CLASSES[variant],
+    loading && "pointer-events-none opacity-60",
+    className,
+  );
 
-  if ("href" in props && props.href !== undefined) {
-    const { href, ...anchorProps } = props as ButtonAsAnchor;
+  const content = loading ? (
+    <>
+      <Spinner />
+      <span>{loadingText ?? children}</span>
+    </>
+  ) : (
+    children
+  );
+
+  if ("href" in rest && rest.href !== undefined) {
     return (
-      <a href={href} className={classes} {...anchorProps}>
-        {children}
+      <a className={classes} aria-disabled={loading || undefined} {...rest}>
+        {content}
       </a>
     );
   }
 
-  const { ...buttonProps } = props as ButtonAsButton;
   return (
-    <button type="button" className={classes} {...buttonProps}>
-      {children}
+    <button
+      type="button"
+      className={classes}
+      disabled={loading || undefined}
+      aria-busy={loading || undefined}
+      {...rest}
+    >
+      {content}
     </button>
   );
 }

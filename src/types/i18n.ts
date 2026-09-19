@@ -12,6 +12,8 @@ export interface TranslationJson {
     eyebrow: string;
     ctaPrimary: string;
     ctaGhost: string;
+    ctaGhostLoading: string;
+    downloadError: string;
     scrollLabel: string;
   };
   about: {

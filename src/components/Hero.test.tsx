@@ -1,5 +1,5 @@
 import { describe, expect, mock, test } from "bun:test";
-import { fireEvent } from "@testing-library/react";
+import { act, fireEvent } from "@testing-library/react";
 import { Hero } from "@/components/Hero";
 import { renderWithI18n } from "@/test/i18n";
 import type { ResumeJson } from "@/types/resume";
@@ -57,13 +57,15 @@ describe("Hero", () => {
   test("renders primary and ghost CTA", () => {
     const { getByText } = renderWithI18n(<Hero resume={resume} />);
     expect(getByText("Get in Touch")).toBeTruthy();
-    expect(getByText("View Resume")).toBeTruthy();
+    expect(getByText("Download Resume")).toBeTruthy();
   });
 
-  test("View Resume is a button that triggers downloadResumePdf", () => {
+  test("Download Resume is a button that triggers downloadResumePdf", async () => {
     const { getByRole } = renderWithI18n(<Hero resume={resume} />);
-    const btn = getByRole("button", { name: "View Resume" });
-    fireEvent.click(btn);
+    const btn = getByRole("button", { name: "Download Resume" });
+    await act(async () => {
+      fireEvent.click(btn);
+    });
     expect(downloadResumePdf).toHaveBeenCalled();
   });
 });

@@ -10,6 +10,7 @@ import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { CursorFollower } from "./components/ui/CursorFollower";
 import { SkipLink } from "./components/ui/SkipLink";
+import { Toast } from "./components/ui/Toast";
 import { useResume } from "./hooks/useResume";
 
 export function App() {
@@ -33,6 +34,7 @@ export function App() {
         <Contact meta={resume.meta} />
       </main>
       <Footer meta={resume.meta} />
+      <Toast />
     </>
   );
 }

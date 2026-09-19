@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { downloadResumePdf } from "@/lib/pdf/downloadResumePdf";
+import { showToast } from "@/lib/toast";
 import type { ResumeJson } from "@/types/resume";
 import { AbstractGeometry } from "./AbstractGeometry";
 import { ScrollIndicator } from "./ScrollIndicator";
@@ -12,9 +14,21 @@ interface HeroProps {
 export function Hero({ resume }: HeroProps) {
   const { t, i18n } = useTranslation();
   const { meta, objectiveShort } = resume;
+  const [downloading, setDownloading] = useState(false);
   const nameParts = meta.name.split(" ");
   const firstName = nameParts[0];
   const lastName = nameParts.slice(1).join(" ");
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      await downloadResumePdf(resume, i18n.language);
+    } catch {
+      showToast(t("hero.downloadError"));
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <section
@@ -42,7 +56,12 @@ export function Hero({ resume }: HeroProps) {
 
           <div className="animate-fade-up flex flex-wrap gap-4 [animation-delay:700ms]">
             <Button href="#contact">{t("hero.ctaPrimary")}</Button>
-            <Button variant="ghost" onClick={() => downloadResumePdf(resume, i18n.language)}>
+            <Button
+              variant="ghost"
+              onClick={handleDownload}
+              loading={downloading}
+              loadingText={t("hero.ctaGhostLoading")}
+            >
               {t("hero.ctaGhost")}
             </Button>
           </div>

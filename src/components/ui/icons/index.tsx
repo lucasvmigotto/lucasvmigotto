@@ -167,3 +167,27 @@ export function ExternalLink({ size = 14 }: { size?: number }) {
     </svg>
   );
 }
+
+export function Spinner({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className="animate-spin"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeDasharray="60"
+        strokeDashoffset="20"
+      />
+    </svg>
+  );
+}
