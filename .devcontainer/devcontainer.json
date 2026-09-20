@@ -1,0 +1,63 @@
+{
+	"name": "lucasvmigotto",
+	"image": "lucasvmigotto/devenv:bun-1.3.9-ubuntu",
+	"runArgs": ["--rm", "--name", "lucasvmigotto", "--env-file", ".env"],
+	"remoteUser": "developer",
+	"mounts": [
+		{
+			"source": "devcontainer-extensions",
+			"target": "/root/.vscode-server/extensions",
+			"type": "volume"
+		}
+	],
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"moby": false,
+            "installDockerComposeSwitch": false
+		}
+	},
+	"initializeCommand": {
+		"env-file": "cat .env || cp .env.example .env"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": true,
+				"editor.codeActionsOnSave": {
+					"source.organizeImports": "explicit"
+				},
+				"editor.formatOnSave": true,
+				"[javascript]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[javascriptreact]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[typescript]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[typescriptreact]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				}
+			},
+			"extensions": [
+				"Cardinal90.multi-cursor-case-preserve",
+				"christian-kohler.path-intellisense",
+				"DavidAnson.vscode-markdownlint",
+				"EditorConfig.EditorConfig",
+				"esbenp.prettier-vscode",
+				"GitHub.vscode-github-actions",
+				"humao.rest-client",
+				"mhutchie.git-graph",
+				"mohsen1.prettify-json",
+				"mutantdino.resourcemonitor",
+				"oven.bun-vscode",
+				"redhat.vscode-yaml",
+				"ryu1kn.partial-diff",
+				"streetsidesoftware.code-spell-checker-portuguese-brazilian",
+				"streetsidesoftware.code-spell-checker",
+                "bradlc.vscode-tailwindcss"
+			]
+		}
+	}
+}
