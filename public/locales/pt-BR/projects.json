@@ -21,7 +21,7 @@
       "links": {
         "repo": "https://github.com/lucasvmigotto/rusteams"
       },
-      "image": "/assets/projects/rusteams.png",
+      "image": "https://rusteams.lucasvmigotto.me/images/og-image.png",
       "category": ["rust", "tui", "microsoft-teams", "graph-api"],
       "featured": true
     },
@@ -47,7 +47,7 @@
       "links": {
         "repo": "https://github.com/lucasvmigotto/tasky"
       },
-      "image": "/assets/projects/tasky.png",
+      "image": "https://tasky.lucasvmigotto.me/images/og-image.png",
       "category": ["java", "spring", "react", "fullstack", "multi-tenant"],
       "featured": true
     },
@@ -74,7 +74,7 @@
         "repo": "https://github.com/lucasvmigotto/devenv",
         "live": "https://devenv.lucasvmigotto.me"
       },
-      "image": "/assets/projects/devenv.png",
+      "image": "https://devenv.lucasvmigotto.me/images/og-image.png",
       "category": ["docker", "devcontainers", "dx", "tooling"],
       "featured": true
     },
@@ -99,7 +99,7 @@
       "links": {
         "repo": "https://github.com/lucasvmigotto/dottod"
       },
-      "image": "/assets/projects/dottod.png",
+      "image": "https://dottod.lucasvmigotto.me/images/og-image.png",
       "category": ["dotfiles", "bootstrap", "rust", "tui", "bash"],
       "featured": true
     },
@@ -109,7 +109,7 @@
       "role": "Autor & Mantenedor",
       "period": { "start": "2024-06", "end": null },
       "summary": "Site de portfólio pessoal — React 19, TypeScript, Tailwind v4, Bun, i18n, geração de PDF.",
-      "description": "Este site de portfólio. Um SPA de página única, totalmente estático, renderizado no cliente, deployado como assets estáticos atrás de Nginx em container Docker. Apresenta design system dark-field, conteúdo bilíngue (EN/PT-BR), animações scroll-reveal, e geração de PDF do currículo no cliente.",
+      "description": "Este site de portfólio. Um SPA de página única, totalmente estático, renderizado no cliente, deployado como images estáticos atrás de Nginx em container Docker. Apresenta design system dark-field, conteúdo bilíngue (EN/PT-BR), animações scroll-reveal, e geração de PDF do currículo no cliente.",
       "problem": "Sites pessoais frequentemente ficam over-engineered (Next.js para página estática) ou under-engineered (sem i18n, sem a11y, sem pipeline de build). Este projeto demonstra um stack mínimo, production-grade, que é rápido, acessível e mantível.",
       "stack": ["React 19", "TypeScript", "TailwindCSS v4", "Bun", "Vite", "i18next", "@react-pdf/renderer"],
       "highlights": [
@@ -123,7 +123,7 @@
         "repo": "https://github.com/lucasvmigotto/lucasvmigotto",
         "live": "https://lucasvmigotto.com"
       },
-      "image": "/assets/projects/lucasvmigotto.png",
+      "image": "/images/og-image.png",
       "category": ["portfolio", "react", "typescript", "tailwind"],
       "featured": true
     }
