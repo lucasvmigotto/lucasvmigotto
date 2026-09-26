@@ -4,8 +4,10 @@ import { fileURLToPath } from "node:url";
 import { Resvg } from "@resvg/resvg-js";
 
 // Rasterize the Open Graph source SVG into a PNG served from /images/.
-// Runs before `vite build` (prebuild) so the PNG lands in `public/` and is
-// copied verbatim into `dist/`.
+//
+// Runs before `vite build` (prebuild), writing into `public/images/` so Vite
+// copies the PNG into `dist/`. Container builds bind-mount `public/`
+// read-only and copy it into the writable layer first (see Dockerfile).
 //
 // The self-hosted fonts are passed explicitly: resvg does not fetch fonts
 // over the network, so without them the SVG's font-family declarations
