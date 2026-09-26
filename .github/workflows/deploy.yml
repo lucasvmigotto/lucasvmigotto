@@ -126,7 +126,7 @@ jobs:
           git push --force origin ${{ needs.ci.outputs.version }}
 
       - name: Create release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ needs.ci.outputs.version }}
           name: v${{ needs.ci.outputs.version }}
