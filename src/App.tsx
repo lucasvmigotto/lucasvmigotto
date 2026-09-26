@@ -11,13 +11,15 @@ import { Skills } from "./components/Skills";
 import { CursorFollower } from "./components/ui/CursorFollower";
 import { SkipLink } from "./components/ui/SkipLink";
 import { Toast } from "./components/ui/Toast";
+import { useProjects } from "./hooks/useProjects";
 import { useResume } from "./hooks/useResume";
 
 export function App() {
   const { ready } = useTranslation();
   const resume = useResume();
+  const projects = useProjects();
 
-  if (!ready || !resume) return null;
+  if (!ready || !resume || !projects) return null;
 
   return (
     <>
@@ -29,7 +31,7 @@ export function App() {
         <About resume={resume} />
         <Experience experience={resume.experience} />
         <Skills skills={resume.skills} certifications={resume.certifications} />
-        <Projects projects={resume.projects} />
+        <Projects projects={projects} />
         <Education education={resume.education} />
         <Contact meta={resume.meta} />
       </main>
