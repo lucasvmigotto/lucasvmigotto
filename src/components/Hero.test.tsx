@@ -1,5 +1,5 @@
 import { describe, expect, mock, test } from "bun:test";
-import { fireEvent } from "@testing-library/react";
+import { act, fireEvent } from "@testing-library/react";
 import { Hero } from "@/components/Hero";
 import { renderWithI18n } from "@/test/i18n";
 import type { ResumeJson } from "@/types/resume";
@@ -38,12 +38,13 @@ mock.module("@/lib/pdf/downloadResumePdf", () => ({
 }));
 
 describe("Hero", () => {
-  test("renders split name across two headings", () => {
-    const { getAllByRole } = renderWithI18n(<Hero resume={resume} />);
-    const headings = getAllByRole("heading", { level: 1 });
-    expect(headings.length).toBe(2);
-    expect(headings[0]?.textContent).toBe("Lucas");
-    expect(headings[1]?.textContent).toBe("Vidor Migotto");
+  test("renders single h1 with split name across two lines", () => {
+    const { getByRole } = renderWithI18n(<Hero resume={resume} />);
+    const heading = getByRole("heading", { level: 1 });
+    expect(heading).toBeTruthy();
+    expect(heading.textContent).toContain("Lucas");
+    expect(heading.textContent).toContain("Vidor Migotto");
+    expect(heading.querySelectorAll("span")).toHaveLength(2);
   });
 
   test("renders title and objective short", () => {
@@ -55,13 +56,15 @@ describe("Hero", () => {
   test("renders primary and ghost CTA", () => {
     const { getByText } = renderWithI18n(<Hero resume={resume} />);
     expect(getByText("Get in Touch")).toBeTruthy();
-    expect(getByText("View Resume")).toBeTruthy();
+    expect(getByText("Download Resume")).toBeTruthy();
   });
 
-  test("View Resume is a button that triggers downloadResumePdf", () => {
+  test("Download Resume is a button that triggers downloadResumePdf", async () => {
     const { getByRole } = renderWithI18n(<Hero resume={resume} />);
-    const btn = getByRole("button", { name: "View Resume" });
-    fireEvent.click(btn);
+    const btn = getByRole("button", { name: "Download Resume" });
+    await act(async () => {
+      fireEvent.click(btn);
+    });
     expect(downloadResumePdf).toHaveBeenCalled();
   });
 });

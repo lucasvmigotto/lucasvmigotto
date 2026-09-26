@@ -4,6 +4,7 @@ export interface TranslationJson {
     about: string;
     experience: string;
     skills: string;
+    projects: string;
     education: string;
     contact: string;
   };
@@ -11,6 +12,8 @@ export interface TranslationJson {
     eyebrow: string;
     ctaPrimary: string;
     ctaGhost: string;
+    ctaGhostLoading: string;
+    downloadError: string;
     scrollLabel: string;
   };
   about: {
@@ -44,10 +47,19 @@ export interface TranslationJson {
     body: string;
     ctaEmail: string;
   };
+  projects: {
+    eyebrow: string;
+    heading: string;
+    featuredLabel: string;
+    otherLabel: string;
+    viewCode: string;
+    viewLive: string;
+  };
   footer: {
     copyright: string;
   };
   common: {
     present: string;
+    skipToMain: string;
   };
 }

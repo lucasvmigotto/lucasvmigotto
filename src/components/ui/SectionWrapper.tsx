@@ -14,13 +14,13 @@ export function SectionWrapper({ id, numeral, eyebrow, heading, children }: Sect
       <div className="relative mx-auto max-w-[1120px] px-4 sm:px-8">
         {numeral && (
           <span
-            className="absolute -left-4 lg:-left-12 top-0 font-heading font-bold text-[8rem] leading-none text-text-primary opacity-[0.06] select-none pointer-events-none hidden lg:block"
+            className="absolute -left-4 lg:-left-12 top-0 font-heading font-bold text-[8rem] leading-none text-text-primary opacity-[0.4] select-none pointer-events-none hidden lg:block"
             aria-hidden="true"
           >
             {numeral}
           </span>
         )}
-        <span className="block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent mb-3 animate-letter-space">
+        <span className="block font-heading font-medium text-[0.75rem] uppercase tracking-[0.12em] text-accent-text mb-3 animate-letter-space">
           {eyebrow}
         </span>
         {heading && (

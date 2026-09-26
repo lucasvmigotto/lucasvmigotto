@@ -6,29 +6,37 @@ import { Experience } from "./components/Experience";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
 import { Nav } from "./components/Nav";
+import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { CursorFollower } from "./components/ui/CursorFollower";
+import { SkipLink } from "./components/ui/SkipLink";
+import { Toast } from "./components/ui/Toast";
+import { useProjects } from "./hooks/useProjects";
 import { useResume } from "./hooks/useResume";
 
 export function App() {
   const { ready } = useTranslation();
   const resume = useResume();
+  const projects = useProjects();
 
-  if (!ready || !resume) return null;
+  if (!ready || !resume || !projects) return null;
 
   return (
     <>
+      <SkipLink />
       <CursorFollower />
       <Nav />
-      <main>
+      <main id="main-content">
         <Hero resume={resume} />
         <About resume={resume} />
         <Experience experience={resume.experience} />
         <Skills skills={resume.skills} certifications={resume.certifications} />
+        <Projects projects={projects} />
         <Education education={resume.education} />
         <Contact meta={resume.meta} />
       </main>
       <Footer meta={resume.meta} />
+      <Toast />
     </>
   );
 }

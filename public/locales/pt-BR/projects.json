@@ -1,0 +1,82 @@
+{
+  "projects": [
+    {
+      "slug": "rusteams",
+      "name": "rusteams",
+      "role": "Autor & Mantenedor",
+      "period": { "start": "2024-01", "end": null },
+      "summary": "Cliente TUI (interface de terminal) para Microsoft Teams via APIs oficiais do Microsoft Graph.",
+      "description": "rusteams é um cliente TUI para Microsoft Teams escrito em Rust que conecta via APIs do Microsoft Graph. Possui modelo de domínio rico (reações, menções, threads, presença), máquina de estado de conexão com backoff, sanitizador de saída de terminal para segurança, e engine de sincronização por polling. Usa modelo BYO-app para autenticação Entra ID.",
+      "problem": "Clientes Teams existentes são apps Electron pesados. Desenvolvedores e power users querem um cliente de terminal leve, controlado por teclado, que se integre ao seu workflow e respeite fronteiras de segurança do terminal.",
+      "stack": ["Rust", "Microsoft Graph API", "Crossterm", "Ratatui", "Tokio"],
+      "highlights": [
+        "Fluxo OAuth device-code com armazenamento no keyring do SO (BYO Entra app)",
+        "Domínio rico: reações, menções, threads, presença",
+        "Sanitizador de saída terminal (remoção ANSI/OSC/C0)",
+        "GraphClient com polling incremental, retry 429, paginação",
+        "Suites de teste offline: unit, contract, property com MockTeamsProvider",
+        "Buffer do composer + modelos de filtro de paleta com fluxo optimistic-send",
+        "Event loop live com feed crossterm, fold de ação, re-render"
+      ],
+      "links": {
+        "repo": "https://github.com/lucasvmigotto/rusteams"
+      },
+      "image": "https://rusteams.lucasvmigotto.me/og-image.png",
+      "category": ["rust", "tui", "microsoft-teams", "graph-api"],
+      "featured": true
+    },
+    {
+      "slug": "tasky",
+      "name": "TaskY",
+      "role": "Autor & Mantenedor",
+      "period": { "start": "2023-01", "end": null },
+      "summary": "Monorepo multi-tenant de gestão de trabalho e tempo com API Java/Spring Boot, SPA React e PostgreSQL.",
+      "description": "TaskY é um monorepo full-stack para gestão de trabalho e tempo multi-tenant. A API usa Java 21, Spring Boot 4, Spring Security, JPA e Flyway no PostgreSQL 16. O frontend usa React 19, TypeScript, Vite 6, TanStack Query, Zustand, Tailwind 4 e Radix UI. Inclui autenticação Google OAuth, JWTs de acesso com cookies de refresh rotativos, e autorização com escopo de tenant.",
+      "problem": "Equipes precisam de uma solução de time-tracking multi-tenant auto-hospedável, com fronteiras de autorização adequadas, trilhas de auditoria e UX moderna — sem vendor lock-in ou preços SaaS por assento.",
+      "stack": ["Java 21", "Spring Boot 4", "React 19", "TypeScript", "PostgreSQL 16", "Tailwind 4", "Radix UI", "TanStack Query", "Zustand", "Docker"],
+      "highlights": [
+        "Arquitetura multi-tenant com queries com escopo de tenant",
+        "Google OAuth com cookies HttpOnly de refresh rotativos",
+        "JWTs de acesso em memória do navegador (auth Bearer)",
+        "Spring Security + JPA + migrações Flyway",
+        "React 19 + TanStack Query + Zustand para estado",
+        "Primitivas Radix UI com estilização Tailwind 4",
+        "Testes de integração Testcontainers + Vitest/MSW no frontend",
+        "GitHub Actions CI com CodeQL, Gitleaks, container scans, SBOM"
+      ],
+      "links": {
+        "repo": "https://github.com/lucasvmigotto/tasky"
+      },
+      "image": "https://tasky.lucasvmigotto.me/og-image.png",
+      "category": ["java", "spring", "react", "fullstack", "multi-tenant"],
+      "featured": true
+    },
+    {
+      "slug": "devenv",
+      "name": "devenv",
+      "role": "Autor & Mantenedor",
+      "period": { "start": "2023-01", "end": null },
+      "summary": "Uma suíte de imagens base e de linguagem para DevContainer, reprodutíveis e non-root, construídas sobre Debian, Ubuntu, Alpine e Arch Linux.",
+      "description": "devenv fornece uma coleção curada de imagens DevContainer para 30+ linguagens de programação. Cada imagem traz um usuário `developer` (UID 1000) com sudo/doas sem senha, ZSH + prompt Spaceship e Nerd Fonts. Dotfiles vêm do submódulo git dottod para paridade com workstation. Imagens declaram VOLUMEs para caches de dependências que sobrevivem a rebuilds de container. Publicado em devenv.lucasvmigotto.me e GHCR/Docker Hub.",
+      "problem": "Ambientes de desenvolvimento divergem entre máquinas e membros da equipe. Imagens DevContainer existentes são ou muito mínimas ou muito opinativas. Equipes precisam de um catálogo de imagens versionado, abrangente, com tooling consistente e persistência de cache.",
+      "stack": ["Docker", "Debian", "Ubuntu", "Alpine", "Arch Linux", "ZSH", "Spaceship", "Nerd Fonts"],
+      "highlights": [
+        "30+ imagens de linguagem: Java, Go, Rust, Python, .NET, Flutter, Node, Zig, C/C++, e mais",
+        "4 distros base: Debian (trixie/bookworm), Ubuntu (noble/jammy), Alpine (3.21-3.23), Arch Linux",
+        "Usuário non-root `developer` (UID 1000) com sudo/doas",
+        "ZSH + prompt Spaceship + Nerd Fonts (FiraCode, FiraMono, SymbolsOnly)",
+        "Dotfiles via submódulo git dottod para paridade com workstation",
+        "VOLUMEs de cache para Gradle, Cargo, uv, npm, Go, .NET, etc.",
+        "CI Buildx multi-arch com proveniência SLSA (GHCR + Docker Hub)",
+        "Matriz declarativa em manifest.json — adiciona linguagens sem mudar workflows"
+      ],
+      "links": {
+        "repo": "https://github.com/lucasvmigotto/devenv",
+        "live": "https://devenv.lucasvmigotto.me"
+      },
+      "image": "https://devenv.lucasvmigotto.me/og-image.png",
+      "category": ["docker", "devcontainers", "dx", "tooling"],
+      "featured": true
+    }
+  ]
+}

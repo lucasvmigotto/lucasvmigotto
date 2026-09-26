@@ -32,3 +32,13 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # Finder (MacOS) folder config
 .DS_Store
+
+# Playwright
+test-results
+playwright-report
+blob-report
+
+.env
+
+# generated OG image (built from public/images/og-image.svg)
+public/images/og-image.png

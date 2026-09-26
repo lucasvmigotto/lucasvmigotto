@@ -4,13 +4,16 @@
     "about": "About",
     "experience": "Experience",
     "skills": "Skills",
+    "projects": "Projects",
     "education": "Education",
     "contact": "Contact"
   },
   "hero": {
     "eyebrow": "Senior Software Engineer & Cloud Architect",
     "ctaPrimary": "Get in Touch",
-    "ctaGhost": "View Resume",
+    "ctaGhost": "Download Resume",
+    "ctaGhostLoading": "Downloading…",
+    "downloadError": "Could not download the resume. Please try again.",
     "scrollLabel": "Scroll"
   },
   "about": {
@@ -44,10 +47,19 @@
     "body": "Open to senior roles, consulting, and technical leadership opportunities.",
     "ctaEmail": "Send Email"
   },
+  "projects": {
+    "eyebrow": "Projects",
+    "heading": "Selected Work",
+    "featuredLabel": "Featured Projects",
+    "otherLabel": "Other Projects",
+    "viewCode": "View Code",
+    "viewLive": "View Live"
+  },
   "footer": {
     "copyright": "Lucas Vidor Migotto · São Paulo, Brazil"
   },
   "common": {
-    "present": "Present"
+    "present": "Present",
+    "skipToMain": "Skip to main content"
   }
 }

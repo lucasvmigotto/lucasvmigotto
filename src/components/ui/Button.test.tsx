@@ -33,4 +33,16 @@ describe("Button", () => {
     const el = screen.getByRole("button", { name: "Ghost" });
     expect(el.className).toContain("border");
   });
+
+  test("shows loading text and disables button when loading", () => {
+    render(
+      <Button loading loadingText="Downloading…" onClick={() => {}}>
+        Download Resume
+      </Button>,
+    );
+    const el = screen.getByRole("button", { name: "Downloading…" });
+    expect(el).toBeTruthy();
+    expect((el as HTMLButtonElement).disabled).toBe(true);
+    expect(el.getAttribute("aria-busy")).toBe("true");
+  });
 });
