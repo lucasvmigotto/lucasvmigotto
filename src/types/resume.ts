@@ -94,5 +94,4 @@ export interface ResumeJson {
   certifications: Certification[];
   education: Education[];
   languages: Language[];
-  projects: Project[];
 }
