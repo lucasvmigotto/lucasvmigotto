@@ -21,7 +21,7 @@
       "links": {
         "repo": "https://github.com/lucasvmigotto/rusteams"
       },
-      "image": "https://rusteams.lucasvmigotto.me/images/og-image.png",
+      "image": "https://rusteams.lucasvmigotto.me/og-image.png",
       "category": ["rust", "tui", "microsoft-teams", "graph-api"],
       "featured": true
     },
@@ -47,7 +47,7 @@
       "links": {
         "repo": "https://github.com/lucasvmigotto/tasky"
       },
-      "image": "https://tasky.lucasvmigotto.me/images/og-image.png",
+      "image": "https://tasky.lucasvmigotto.me/og-image.png",
       "category": ["java", "spring", "react", "fullstack", "multi-tenant"],
       "featured": true
     },
@@ -74,7 +74,7 @@
         "repo": "https://github.com/lucasvmigotto/devenv",
         "live": "https://devenv.lucasvmigotto.me"
       },
-      "image": "https://devenv.lucasvmigotto.me/images/og-image.png",
+      "image": "https://devenv.lucasvmigotto.me/og-image.png",
       "category": ["docker", "devcontainers", "dx", "tooling"],
       "featured": true
     }

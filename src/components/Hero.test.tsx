@@ -29,7 +29,6 @@ const resume: ResumeJson = {
   certifications: [],
   education: [],
   languages: [],
-  projects: [],
 };
 
 const downloadResumePdf = mock(async () => {});

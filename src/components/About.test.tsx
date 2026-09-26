@@ -31,7 +31,6 @@ const resume: ResumeJson = {
   ],
   education: [],
   languages: [],
-  projects: [],
 };
 
 describe("About", () => {
