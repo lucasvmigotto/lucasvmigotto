@@ -77,55 +77,6 @@
       "image": "https://devenv.lucasvmigotto.me/images/og-image.png",
       "category": ["docker", "devcontainers", "dx", "tooling"],
       "featured": true
-    },
-    {
-      "slug": "dottod",
-      "name": "dottod",
-      "role": "Autor & Mantenedor",
-      "period": { "start": "2023-06", "end": null },
-      "summary": "Dotfiles pessoais e bootstrap de workstation para Debian (GNOME) com scripts bash e TUI em Rust.",
-      "description": "dottod recria reproduzivelmente uma workstation completa de desenvolvedor: Zsh + Oh My Zsh + prompt Spaceship (com segment system-info), Nerd Fonts, Neovim/Vim, container runtime (Podman por padrão), config SSH do GitHub, e tooling CLI. Inclui tanto um orchestrator de bootstrap bash quanto uma TUI interativa Ratatui. Releases pré-buildados disponíveis para instalação sem Rust.",
-      "problem": "Configurar uma máquina nova é tedioso e propenso a erros. Gerenciadores de dotfiles existentes são ou muito complexos (templates chezmoi) ou muito mínimos. dottod oferece bootstrap completo e idempotente com interfaces tanto de script quanto TUI.",
-      "stack": ["Bash", "Rust", "Ratatui", "Zsh", "Spaceship", "Nerd Fonts", "Podman"],
-      "highlights": [
-        "10 tarefas de bootstrap modulares: shell, fonts, vim, neovim, container, desktop, vscode, ghostty, gitconfig, ssh, tools",
-        "TUI interativa Ratatui com keybindings vim-like (j/k, paleta, ciclo de runtime)",
-        "Releases pré-buildados: tarball de scripts + binário compilado + checksums",
-        "Idempotente: verifica instalações existentes, faz backup de dotfiles (.dottod.bak)",
-        "Execução paralela com flag `--parallel`",
-        "Suites de teste BATS + zsh com fixtures herméticas",
-        "Seleção de container runtime: Podman (padrão) ou Docker"
-      ],
-      "links": {
-        "repo": "https://github.com/lucasvmigotto/dottod"
-      },
-      "image": "https://dottod.lucasvmigotto.me/images/og-image.png",
-      "category": ["dotfiles", "bootstrap", "rust", "tui", "bash"],
-      "featured": true
-    },
-    {
-      "slug": "lucasvmigotto",
-      "name": "lucasvmigotto (este portfólio)",
-      "role": "Autor & Mantenedor",
-      "period": { "start": "2024-06", "end": null },
-      "summary": "Site de portfólio pessoal — React 19, TypeScript, Tailwind v4, Bun, i18n, geração de PDF.",
-      "description": "Este site de portfólio. Um SPA de página única, totalmente estático, renderizado no cliente, deployado como images estáticos atrás de Nginx em container Docker. Apresenta design system dark-field, conteúdo bilíngue (EN/PT-BR), animações scroll-reveal, e geração de PDF do currículo no cliente.",
-      "problem": "Sites pessoais frequentemente ficam over-engineered (Next.js para página estática) ou under-engineered (sem i18n, sem a11y, sem pipeline de build). Este projeto demonstra um stack mínimo, production-grade, que é rápido, acessível e mantível.",
-      "stack": ["React 19", "TypeScript", "TailwindCSS v4", "Bun", "Vite", "i18next", "@react-pdf/renderer"],
-      "highlights": [
-        "SPA estática zero-servidor com deploy Docker + Nginx",
-        "i18n completo (EN/PT-BR) com formatação locale-aware",
-        "Alvo WCAG 2.2 AA com testes automatizados axe-core",
-        "Geração de PDF no cliente a partir da mesma fonte de dados",
-        "Lighthouse CI gated no CI/CD"
-      ],
-      "links": {
-        "repo": "https://github.com/lucasvmigotto/lucasvmigotto",
-        "live": "https://lucasvmigotto.com"
-      },
-      "image": "/images/og-image.png",
-      "category": ["portfolio", "react", "typescript", "tailwind"],
-      "featured": true
     }
   ]
 }

@@ -46,7 +46,6 @@ export function Hero({ resume }: HeroProps) {
 
           <h1 className="font-heading font-bold text-[clamp(2.5rem,6vw,5.5rem)] leading-none tracking-[-0.03em] text-text-primary mb-8">
             <span className="animate-fade-up block [animation-delay:350ms]">{firstName}</span>
-            <br />
             <span className="animate-fade-up block [animation-delay:450ms]">{lastName}</span>
           </h1>
 
