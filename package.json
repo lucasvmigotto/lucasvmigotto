@@ -19,6 +19,8 @@
     },
     "scripts": {
         "dev": "vite",
+        "build-og-image": "bun scripts/build-og-image.mjs",
+        "prebuild": "bun scripts/build-og-image.mjs",
         "build": "vite build",
         "preview": "vite preview",
         "lint": "biome check",
@@ -36,6 +38,7 @@
         "@biomejs/biome": "^2.5.14",
         "@lhci/cli": "^0.15.1",
         "@playwright/test": "^1.63.0",
+        "@resvg/resvg-js": "^2.6.2",
         "@tailwindcss/vite": "^4.3.3",
         "@testing-library/dom": "^10.4.2",
         "@testing-library/react": "^16.3.3",
