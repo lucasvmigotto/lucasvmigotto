@@ -115,9 +115,9 @@ Currently a **Senior Information Technology Analyst at SESC-SP**, building Java-
 
 |&nbsp;|&nbsp;|
 |:-:|:-:|
-|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=rusteams&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/rusteams)|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=devenv&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/devenv)|
-|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=dottod&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/dottod)|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=tasky&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/tasky)|
-|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=lucasvmigotto&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/lucasvmigotto)|
+|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=rusteams&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/rusteams)|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=tasky&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/tasky)|
+|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=devenv&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/devenv)|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=dottod&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/dottod)|
+|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=starsky&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/starsky)|[![GitHub Stats](https://github-stats-extended.vercel.app/api/pin?username=lucasvmigotto&repo=ai-gent&description_lines_count=1&theme=dark)](https://github.com/lucasvmigotto/ai-gent)|
 
 &nbsp;
 
