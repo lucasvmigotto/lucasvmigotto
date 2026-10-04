@@ -38,7 +38,7 @@ export function Nav() {
           onClick={() => handleNavClick("hero")}
           className="font-heading font-semibold text-[1rem] text-text-primary tracking-[-0.01em] bg-transparent border-none cursor-pointer"
         >
-          LVM
+          lucasvmigotto
         </button>
 
         <div className="hidden md:flex items-center gap-8">
