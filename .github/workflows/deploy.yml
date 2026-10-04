@@ -18,11 +18,15 @@ jobs:
     permissions:
       contents: read
     outputs:
-      version: ${{ steps.version.outputs.VERSION }}
+      version: ${{ steps.release.outputs.version }}
+      released: ${{ steps.release.outputs.released }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -31,6 +35,21 @@ jobs:
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
+
+      - name: Plan release (bump package.json from commit history)
+        id: release
+        run: |
+          set +e
+          VERSION=$(bun scripts/release.ts)
+          CODE=$?
+          set -e
+          case "$CODE" in
+            0) RELEASED=true ;;
+            3) RELEASED=false ;;
+            *) exit "$CODE" ;;
+          esac
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "released=${RELEASED}" >> "$GITHUB_OUTPUT"
 
       - name: Lint
         run: bun run lint
@@ -49,16 +68,10 @@ jobs:
       - name: Create archive
         run: tar -cjf dist.tar.bz2 dist/
 
-      - name: Set version
-        id: version
-        run: |
-          VERSION=$(bun -p "require('./package.json').version")
-          echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
-
       - name: Upload dist artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dist-${{ steps.version.outputs.VERSION }}
+          name: dist-${{ steps.release.outputs.version }}
           path: |
             dist/
             dist.tar.bz2
@@ -71,10 +84,22 @@ jobs:
     needs: [ci]
     permissions:
       contents: write
+    environment:
+      name: production
+      url: https://lucasvmigotto.me
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          persist-credentials: true
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
 
       - name: Download dist artifact
         uses: actions/download-artifact@v4
@@ -120,12 +145,23 @@ jobs:
             --cache-control "no-cache" \
             --content-type "text/html"
 
-      - name: Create tag
+      - name: Bump package.json to the release version
+        if: ${{ needs.ci.outputs.released == 'true' }}
+        run: bun scripts/release.ts
+
+      - name: Commit and tag the release
+        if: ${{ needs.ci.outputs.released == 'true' }}
         run: |
-          git tag -f ${{ needs.ci.outputs.version }}
-          git push --force origin ${{ needs.ci.outputs.version }}
+          git config user.name "github-actions[bot]"
+          git config user.email "41898496+github-actions[bot]@users.noreply.github.com"
+          VERSION="${{ needs.ci.outputs.version }}"
+          git add package.json
+          git commit -m "chore(release): $VERSION"
+          git tag -a "$VERSION" -m "$VERSION"
+          git push --atomic origin HEAD:refs/heads/main "refs/tags/$VERSION"
 
       - name: Create release
+        if: ${{ needs.ci.outputs.released == 'true' }}
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ needs.ci.outputs.version }}
