@@ -79,7 +79,9 @@ for (const locale of LOCALES) {
     test("Projects filter/view code links work", async ({ page }) => {
       await page.locator("#projects").scrollIntoViewIfNeeded();
 
-      const viewCodeLink = page.locator('#projects a:has-text("View Code"), #projects a:has-text("Ver Código")').first();
+      const viewCodeLink = page
+        .locator('#projects a[aria-label="View Code"], #projects a[aria-label="Ver Código"]')
+        .first();
       await expect(viewCodeLink).toBeVisible({ timeout: 10000 });
       await expect(viewCodeLink).toHaveAttribute("target", "_blank");
       await expect(viewCodeLink).toHaveAttribute("rel", "noopener noreferrer");

@@ -5,7 +5,7 @@ import type { Project } from "@/types/resume";
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
 import { Card } from "./ui/Card";
-import { ExternalLink } from "./ui/icons";
+import { ExternalLink, GitHub } from "./ui/icons";
 import { SectionWrapper } from "./ui/SectionWrapper";
 
 interface ProjectsProps {
@@ -110,18 +110,17 @@ function ProjectCard({ project, delay }: ProjectCardProps) {
             <time>{formatPeriod(project.period.start, project.period.end)}</time>
           </div>
 
-          <div className="flex flex-col items-stretch gap-2 pt-2 border-t border-border">
+          <div className="flex items-center gap-2 pt-2 border-t border-border">
             <Button
               variant="ghost"
               href={project.links.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full"
+              className="w-11 p-0"
+              aria-label={t("projects.viewCode")}
+              title={t("projects.viewCode")}
             >
-              <span className="w-4 h-4 mr-1">
-                <ExternalLink />
-              </span>
-              {t("projects.viewCode")}
+              <GitHub size={20} />
             </Button>
             {project.links.live && (
               <Button
@@ -129,12 +128,11 @@ function ProjectCard({ project, delay }: ProjectCardProps) {
                 href={project.links.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full"
+                className="w-11 p-0"
+                aria-label={t("projects.viewLive")}
+                title={t("projects.viewLive")}
               >
-                <span className="w-4 h-4 mr-1">
-                  <ExternalLink />
-                </span>
-                {t("projects.viewLive")}
+                <ExternalLink size={18} />
               </Button>
             )}
           </div>
