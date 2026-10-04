@@ -162,7 +162,7 @@ jobs:
 
       - name: Create release
         if: ${{ needs.ci.outputs.released == 'true' }}
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ needs.ci.outputs.version }}
           name: v${{ needs.ci.outputs.version }}
