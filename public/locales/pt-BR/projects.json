@@ -113,6 +113,24 @@
       "image": "https://starsky.lucasvmigotto.me/og-banner.png",
       "category": ["python", "react", "typescript"],
       "featured": true
+    },
+    {
+      "slug": "ai-gent",
+      "name": "ai-gent",
+      "role": "Autor & Mantenedor",
+      "period": { "start": "2026-09", "end": null },
+      "summary": "Skills e plugins para Claude Code e opencode — instalação, referência e contribuição.",
+      "description": "Skills e plugins para Claude Code e opencode — instalação, referência e contribuição.",
+      "problem": "",
+      "stack": ["Claude Code", "OpenCode", "Code Agents"],
+      "highlights": [],
+      "links": {
+        "repo": "https://github.com/lucasvmigotto/ai-gent",
+        "live": "https://docs.lucasvmigotto.me/ai-gent/"
+      },
+      "image": "https://docs.lucasvmigotto.me/ai-gent/og-image.png",
+      "category": ["claude-code", "opencode", "code-agents"],
+      "featured": true
     }
   ]
 }
