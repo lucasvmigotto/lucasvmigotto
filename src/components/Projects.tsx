@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { formatPeriod } from "@/lib/formatPeriod";
 import type { Project } from "@/types/resume";
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
@@ -106,9 +107,7 @@ function ProjectCard({ project, delay }: ProjectCardProps) {
           <div className="flex flex-wrap items-center gap-2 text-[0.8rem] text-text-disabled">
             <Badge dotColor="accent">{project.role}</Badge>
             <span>•</span>
-            <time>
-              {project.period.start} — {project.period.end ?? t("common.present")}
-            </time>
+            <time>{formatPeriod(project.period.start, project.period.end)}</time>
           </div>
 
           <div className="flex items-center gap-3 pt-2 border-t border-border">

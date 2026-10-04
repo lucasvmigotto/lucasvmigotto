@@ -4,7 +4,7 @@
       "slug": "rusteams",
       "name": "rusteams",
       "role": "Author & Maintainer",
-      "period": { "start": "2024-01", "end": null },
+      "period": { "start": "2026-09", "end": null },
       "summary": "Terminal user interface (TUI) client for Microsoft Teams via official Microsoft Graph APIs.",
       "description": "rusteams is a Rust-based TUI client for Microsoft Teams that connects via Microsoft Graph APIs. It features a rich domain model (reactions, mentions, threads, presence), a connection state machine with backoff, terminal-output sanitizer for security, and a polling sync engine. Built with a BYO-app model for Entra ID authentication.",
       "problem": "Existing Teams clients are heavy Electron apps. Developers and power users want a lightweight, keyboard-driven terminal client that integrates with their workflow and respects terminal security boundaries.",
@@ -21,7 +21,7 @@
       "links": {
         "repo": "https://github.com/lucasvmigotto/rusteams"
       },
-      "image": "https://rusteams.lucasvmigotto.me/og-image.png",
+      "image": "https://docs.lucasvmigotto.me/rusteams/og-image.png",
       "category": ["rust", "tui", "microsoft-teams", "graph-api"],
       "featured": true
     },
@@ -29,7 +29,7 @@
       "slug": "tasky",
       "name": "TaskY",
       "role": "Author & Maintainer",
-      "period": { "start": "2023-01", "end": null },
+      "period": { "start": "2026-06", "end": null },
       "summary": "Multi-tenant work and time-management monorepo with Java/Spring Boot API, React SPA, and PostgreSQL.",
       "description": "TaskY is a full-stack monorepo for multi-tenant work and time management. The API is built with Java 21, Spring Boot 4, Spring Security, JPA, and Flyway on PostgreSQL 16. The frontend uses React 19, TypeScript, Vite 6, TanStack Query, Zustand, Tailwind 4, and Radix UI. Includes Google OAuth authentication, JWT access tokens with rotating refresh cookies, and tenant-scoped authorization.",
       "problem": "Teams need a self-hostable, multi-tenant time-tracking solution with proper authorization boundaries, audit trails, and modern UX — without vendor lock-in or per-seat SaaS pricing.",
@@ -47,7 +47,7 @@
       "links": {
         "repo": "https://github.com/lucasvmigotto/tasky"
       },
-      "image": "https://tasky.lucasvmigotto.me/og-image.png",
+      "image": "https://docs.lucasvmigotto.me/tasky/og-image.png",
       "category": ["java", "spring", "react", "fullstack", "multi-tenant"],
       "featured": true
     },
@@ -55,9 +55,9 @@
       "slug": "devenv",
       "name": "devenv",
       "role": "Author & Maintainer",
-      "period": { "start": "2023-01", "end": null },
+      "period": { "start": "2026-02", "end": null },
       "summary": "A suite of reproducible, non-root DevContainer base and language images built on Debian, Ubuntu, Alpine, and Arch Linux.",
-      "description": "devenv provides a curated collection of DevContainer images for 30+ programming languages. Each image ships a `developer` user (UID 1000) with passwordless sudo/doas, ZSH + Spaceship prompt, and Nerd Fonts. Dotfiles are sourced from the dottod submodule for workstation parity. Images declare VOLUMEs for dependency caches so they survive container rebuilds. Published at devenv.lucasvmigotto.me and GHCR/Docker Hub.",
+      "description": "devenv provides a curated collection of DevContainer images for 30+ programming languages. Each image ships a `developer` user (UID 1000) with passwordless sudo/doas, ZSH + Spaceship prompt, and Nerd Fonts. Dotfiles are sourced from the dottod submodule for workstation parity. Images declare VOLUMEs for dependency caches so they survive container rebuilds. Published at docs.lucasvmigotto.me/devenv and GHCR/Docker Hub.",
       "problem": "Development environments drift across machines and team members. Existing DevContainer images are either too minimal or too opinionated. Teams need a comprehensive, versioned image catalog with consistent tooling and cache persistence.",
       "stack": ["Docker", "Debian", "Ubuntu", "Alpine", "Arch Linux", "ZSH", "Spaceship", "Nerd Fonts"],
       "highlights": [
@@ -72,10 +72,46 @@
       ],
       "links": {
         "repo": "https://github.com/lucasvmigotto/devenv",
-        "live": "https://devenv.lucasvmigotto.me"
+        "live": "https://docs.lucasvmigotto.me/devenv/"
       },
-      "image": "https://devenv.lucasvmigotto.me/og-image.png",
+      "image": "https://docs.lucasvmigotto.me/devenv/images/og-image.png",
       "category": ["docker", "devcontainers", "dx", "tooling"],
+      "featured": true
+    },
+    {
+      "slug": "dottod",
+      "name": "dottod",
+      "role": "Author & Maintainer",
+      "period": { "start": "2026-03", "end": null },
+      "summary": "Debian workstation bootstrap in plain bash.",
+      "description": "Debian workstation bootstrap in plain bash.",
+      "problem": "",
+      "stack": ["Bash", "Debian", "Dev Containers"],
+      "highlights": [],
+      "links": {
+        "repo": "https://github.com/lucasvmigotto/dottod",
+        "live": "https://docs.lucasvmigotto.me/dottod/"
+      },
+      "image": "https://docs.lucasvmigotto.me/dottod/og-image.png",
+      "category": ["bash", "debian", "devcontainers"],
+      "featured": true
+    },
+    {
+      "slug": "starsky",
+      "name": "starsky",
+      "role": "Author & Maintainer",
+      "period": { "start": "2026-09", "end": null },
+      "summary": "Personalized night-sky poster generator.",
+      "description": "Personalized night-sky poster generator.",
+      "problem": "",
+      "stack": ["Python", "React", "TypeScript"],
+      "highlights": [],
+      "links": {
+        "repo": "https://github.com/lucasvmigotto/starsky",
+        "live": "https://docs.lucasvmigotto.me/starsky/"
+      },
+      "image": "https://starsky.lucasvmigotto.me/og-banner.png",
+      "category": ["python", "react", "typescript"],
       "featured": true
     }
   ]
