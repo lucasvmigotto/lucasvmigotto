@@ -11,9 +11,9 @@ describe("Nav", () => {
     }
   });
 
-  test("renders LVM brand button", () => {
+  test("renders lucasvmigotto brand button", () => {
     const { getByText } = renderWithI18n(<Nav />);
-    expect(getByText("LVM")).toBeTruthy();
+    expect(getByText("lucasvmigotto")).toBeTruthy();
   });
 
   test("hamburger toggles aria-expanded", () => {

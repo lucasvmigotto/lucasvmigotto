@@ -88,7 +88,7 @@ function ProjectCard({ project, delay }: ProjectCardProps) {
         </div>
 
         <div className="flex flex-1 flex-col p-5 gap-3">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap content-start gap-2 min-h-[3.5rem]">
             {project.category.slice(0, 3).map((cat) => (
               <Badge key={cat} dotColor="accent">
                 {cat}
